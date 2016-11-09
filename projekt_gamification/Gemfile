@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'wdm', '>= 0.1.0'
+#gem 'wdm', '>= 0.1.0'
 # Devise for login
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
