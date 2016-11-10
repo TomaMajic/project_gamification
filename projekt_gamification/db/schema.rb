@@ -13,14 +13,14 @@
 ActiveRecord::Schema.define(version: 20161110100540) do
 
   create_table "achievements", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
-    t.string   "first_star"
-    t.string   "ten_stars"
-    t.string   "complete_begginer"
-    t.string   "complete_intermediate"
-    t.string   "complete_expert"
-    t.string   "collect_all_stars"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.boolean  "first_star",            default: false
+    t.boolean  "ten_stars",             default: false
+    t.boolean  "complete_begginer",     default: false
+    t.boolean  "complete_intermediate", default: false
+    t.boolean  "complete_expert",       default: false
+    t.boolean  "collect_all_stars",     default: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
   end
 
   create_table "leaderboards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20161110100540) do
   end
 
   create_table "questions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.integer  "level_id"
     t.string   "question_text",        null: false
     t.string   "type"
     t.string   "correct_answer_fill"
