@@ -10,9 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161107123105) do
+ActiveRecord::Schema.define(version: 20161110091001) do
 
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "levels", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "difficulty",      null: false
+    t.string   "first_question"
+    t.string   "second_question"
+    t.string   "third_question"
+    t.string   "fourth_question"
+    t.integer  "level_no"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  create_table "user_levels", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id"
+    t.integer  "level_id"
+    t.boolean  "q1_status"
+    t.boolean  "q2_status"
+    t.boolean  "q3_status"
+    t.boolean  "q4_status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["level_id"], name: "index_user_levels_on_level_id", using: :btree
+    t.index ["user_id"], name: "index_user_levels_on_user_id", using: :btree
+  end
+
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
