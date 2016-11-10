@@ -1,3 +1,8 @@
-p {
-	text-decoration:underline;
+body {
+	width: 100%; min-width: 980px; height: 100%; margin: 0; padding: 0; font: 20px Verdana,Lucida,Arial,Helvetica,sans-serif; color: #332318;
+}
+
+#header {
+	text-align: left;
+	padding: 15px 0 15px 25px;
 }
