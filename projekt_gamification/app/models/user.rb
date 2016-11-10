@@ -6,5 +6,6 @@ class User < ApplicationRecord
 
   has_many :user_levels
   has_many :user_achievements
+  has_one :leaderboard
   
 end
