@@ -6,3 +6,17 @@ body {
 	text-align: left;
 	padding: 15px 0 15px 25px;
 }
+
+#main {
+	min-height: 500px;
+}
+
+#content {
+	padding: 10px;
+}
+
+#footer {
+	clear: both;
+	height: 2.5em;
+	text-align: right;
+}
