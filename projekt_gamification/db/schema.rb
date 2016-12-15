@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20161110100540) do
 
-  create_table "achievements", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "achievements", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.boolean  "first_star",            default: false
     t.boolean  "ten_stars",             default: false
     t.boolean  "complete_begginer",     default: false
@@ -23,14 +23,14 @@ ActiveRecord::Schema.define(version: 20161110100540) do
     t.datetime "updated_at",                            null: false
   end
 
-  create_table "leaderboards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "leaderboards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
     t.integer  "user_score"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "levels", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "levels", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "difficulty",      null: false
     t.string   "first_question"
     t.string   "second_question"
@@ -41,17 +41,22 @@ ActiveRecord::Schema.define(version: 20161110100540) do
     t.datetime "updated_at",      null: false
   end
 
-  create_table "questions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "questions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "level_id"
     t.string   "question_text",        null: false
     t.string   "type"
+    t.string   "a1"
+    t.string   "a2"
+    t.string   "a3"
+    t.string   "a4"
+    t.string   "fill_ans"
     t.string   "correct_answer_fill"
     t.integer  "correct_answer_multi"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
   end
 
-  create_table "user_achievements", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "user_achievements", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
     t.integer  "achievement_id"
     t.datetime "created_at",     null: false
@@ -60,7 +65,7 @@ ActiveRecord::Schema.define(version: 20161110100540) do
     t.index ["user_id"], name: "index_user_achievements_on_user_id", using: :btree
   end
 
-  create_table "user_levels", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "user_levels", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
     t.integer  "level_id"
     t.boolean  "q1_status"
@@ -73,7 +78,7 @@ ActiveRecord::Schema.define(version: 20161110100540) do
     t.index ["user_id"], name: "index_user_levels_on_user_id", using: :btree
   end
 
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
