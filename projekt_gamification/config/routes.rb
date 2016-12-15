@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 	
+  get 'levels/begginer'
+
+  get 'levels/intermediate'
+
+  get 'levels/expert'
+
   devise_for :users
 
   devise_scope :user do

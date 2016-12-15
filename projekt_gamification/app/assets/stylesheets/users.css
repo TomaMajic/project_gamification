@@ -25,13 +25,13 @@ body {
 	float: right;
 }
 
-.users_index a {
+.links a {
 	text-decoration: none;
 	color: black;
 	display: block;
 	text-align: center;
 }
 
-.users_index a:hover {
+.links a:hover {
 	color: green;
 }
