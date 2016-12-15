@@ -1,3 +1,6 @@
 <% @page_title = "Game Name" %>
 
-<div>Welcome <%= @user.email %></div>
+<div class="users_index">
+	<%= link_to("Learn C", :action => "learning") %>
+	<%= link_to("Test your knowledge", :action => "quiz") %>
+</div>	
