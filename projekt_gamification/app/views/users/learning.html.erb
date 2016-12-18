@@ -1,7 +1,13 @@
 <% @page_title = "Game Name|Learn" %>
 
-<div class="links">
-	<%= link_to("Begginer", :controller => "levels",  :action => "begginer") %>
-	<%= link_to("Intermediate", :controller => "levels", :action => "intermediate") %>
-	<%= link_to("Expert", :controller => "levels", :action => "expert") %>
-</div>	
+<div class="text-center center">
+	<div class="btn btn-default btn-lg btn-block">
+		<%= link_to("Beginner", :controller => "levels",  :action => "begginer") %>
+	</div>
+	<div class="btn btn-default btn-lg btn-block">
+		<%= link_to("Intermediate", :controller => "levels", :action => "intermediate") %>
+	</div>
+	<div class="btn btn-default btn-lg btn-block">
+		<%= link_to("Expert", :controller => "levels", :action => "expert") %>
+	</div>
+</div>
