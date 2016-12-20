@@ -2,7 +2,6 @@ class CreateQuestions < ActiveRecord::Migration[5.0]
   def up
     create_table :questions do |t|
 
-        t.integer "level_id"
         t.integer "answer_id"
         t.string "question_text", :null => false
         t.string "a1"

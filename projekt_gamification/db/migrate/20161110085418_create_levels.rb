@@ -2,10 +2,10 @@ class CreateLevels < ActiveRecord::Migration[5.0]
   def up
     create_table :levels do |t|
 
-        t.integer "q1_id", :null => false
-        t.integer "q2_id", :null => false
-        t.integer "q3_id", :null => false
-        t.integer "q4_id", :null => false
+        t.references :question_one
+        t.references :question_two
+        t.references :question_three
+        t.references :question_four
         t.integer "level_no"
 
         t.timestamps
