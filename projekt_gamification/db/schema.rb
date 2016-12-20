@@ -29,8 +29,9 @@ ActiveRecord::Schema.define(version: 20161220092829) do
 
   create_table "concepts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "progress",   default: 0
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "leaderboards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -45,6 +46,7 @@ ActiveRecord::Schema.define(version: 20161220092829) do
     t.integer  "question_two_id"
     t.integer  "question_three_id"
     t.integer  "question_four_id"
+    t.integer  "concept_id"
     t.integer  "level_no"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false

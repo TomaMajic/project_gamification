@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 	
+  get 'concepts/index'
+
+  get 'concept/index'
+
   get 'levels/begginer'
 
   get 'levels/intermediate'

@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-	layout 'game';
+	layout 'game'
 	before_action :authenticate_user!
 
 	def index 
