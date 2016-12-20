@@ -1,0 +1,2 @@
+class UserConcept < ApplicationRecord
+end

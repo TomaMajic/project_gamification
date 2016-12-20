@@ -1,15 +1,15 @@
 class CreateAchievements < ActiveRecord::Migration[5.0]
-  def change
+  def up
     create_table :achievements do |t|
 
-    	t.boolean "first_star", :default => false
-    	t.boolean "ten_stars", :default => false
-    	t.boolean "complete_begginer", :default => false
-    	t.boolean "complete_intermediate", :default => false
-    	t.boolean "complete_expert", :default => false
-    	t.boolean "collect_all_stars", :default => false
+        t.boolean "complete", :default => false
+        t.string "name", :null => false
 
         t.timestamps
     end
   end
+
+  def down
+    drop_table :achievements
+  end  
 end

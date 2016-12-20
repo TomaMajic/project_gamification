@@ -10,17 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161110100540) do
+ActiveRecord::Schema.define(version: 20161220092829) do
 
   create_table "achievements", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.boolean  "first_star",            default: false
-    t.boolean  "ten_stars",             default: false
-    t.boolean  "complete_begginer",     default: false
-    t.boolean  "complete_intermediate", default: false
-    t.boolean  "complete_expert",       default: false
-    t.boolean  "collect_all_stars",     default: false
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
+    t.boolean  "complete",   default: false
+    t.string   "name",                       null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  create_table "answers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "question_id"
+    t.string   "ans"
+    t.string   "explanation"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "concepts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "leaderboards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -31,29 +41,25 @@ ActiveRecord::Schema.define(version: 20161110100540) do
   end
 
   create_table "levels", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "difficulty",      null: false
-    t.string   "first_question"
-    t.string   "second_question"
-    t.string   "third_question"
-    t.string   "fourth_question"
+    t.integer  "q1_id",      null: false
+    t.integer  "q2_id",      null: false
+    t.integer  "q3_id",      null: false
+    t.integer  "q4_id",      null: false
     t.integer  "level_no"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "questions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "level_id"
-    t.string   "question_text",        null: false
-    t.string   "type"
+    t.integer  "answer_id"
+    t.string   "question_text", null: false
     t.string   "a1"
     t.string   "a2"
     t.string   "a3"
     t.string   "a4"
-    t.string   "fill_ans"
-    t.string   "correct_answer_fill"
-    t.integer  "correct_answer_multi"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "user_achievements", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -63,6 +69,15 @@ ActiveRecord::Schema.define(version: 20161110100540) do
     t.datetime "updated_at",     null: false
     t.index ["achievement_id"], name: "index_user_achievements_on_achievement_id", using: :btree
     t.index ["user_id"], name: "index_user_achievements_on_user_id", using: :btree
+  end
+
+  create_table "user_concepts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id"
+    t.integer  "level_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["level_id"], name: "index_user_concepts_on_level_id", using: :btree
+    t.index ["user_id"], name: "index_user_concepts_on_user_id", using: :btree
   end
 
   create_table "user_levels", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
