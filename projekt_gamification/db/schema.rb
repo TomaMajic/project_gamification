@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161220092829) do
+ActiveRecord::Schema.define(version: 20161224124815) do
 
   create_table "achievements", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.boolean  "complete",   default: false
@@ -20,7 +20,6 @@ ActiveRecord::Schema.define(version: 20161220092829) do
   end
 
   create_table "answers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "question_id"
     t.string   "ans"
     t.string   "explanation"
     t.datetime "created_at",  null: false
@@ -96,6 +95,13 @@ ActiveRecord::Schema.define(version: 20161220092829) do
     t.datetime "updated_at", null: false
     t.index ["level_id"], name: "index_user_levels_on_level_id", using: :btree
     t.index ["user_id"], name: "index_user_levels_on_user_id", using: :btree
+  end
+
+  create_table "user_questions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_user_questions_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

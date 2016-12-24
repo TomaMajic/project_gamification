@@ -1,5 +1,10 @@
-<div>
+<% @page_title = "Game Name|Learn" %>
+
+<div class="text-center center">
 	<% @concepts.each do |c| %>
-		<%= c.name %>
+		<div class="btn btn-default btn-lg btn-block">
+			<%= c.name %>
+		</div>
 	<% end %>
 </div>
+
