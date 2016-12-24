@@ -1,0 +1,14 @@
+<%= console %>
+<div>
+	<% @questions.each do |q| %>
+		<% @answers = Answer.where(:question_id => q.id) %>
+		<div>
+			<p><%= h q.question_text %></p>
+			<ol>
+				<% @answers.each do |a| %>
+					<li><button><%= a.ans %></button></li>
+				<% end %>
+			</ol>
+		</div>
+	<% end %>
+</div>

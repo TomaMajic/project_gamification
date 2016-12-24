@@ -3,7 +3,7 @@
 <div class="text-center center">
 	<% @levels.each do |l| %>
 		<div class="btn btn-default btn-lg btn-block">
-			<%= l.level_no %>
+			<%= link_to(l.level_no, :controller => "questions", :action => "index", :id => l.id)  %>
 		</div>
 	<% end %>
 </div>
