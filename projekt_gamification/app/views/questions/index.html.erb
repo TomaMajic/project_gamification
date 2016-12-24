@@ -1,4 +1,5 @@
-<%= console %>
+<%@page_title = "Level"%>
+
 <div>
 	<% @questions.each do |q| %>
 		<% @answers = Answer.where(:question_id => q.id) %>
