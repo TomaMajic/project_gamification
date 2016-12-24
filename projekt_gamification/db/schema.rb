@@ -20,8 +20,10 @@ ActiveRecord::Schema.define(version: 20161224124815) do
   end
 
   create_table "answers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "question_id"
     t.string   "ans"
     t.string   "explanation"
+    t.boolean  "correct"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -41,27 +43,15 @@ ActiveRecord::Schema.define(version: 20161224124815) do
   end
 
   create_table "levels", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "question_one_id"
-    t.integer  "question_two_id"
-    t.integer  "question_three_id"
-    t.integer  "question_four_id"
     t.integer  "concept_id"
     t.integer  "level_no"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
-    t.index ["question_four_id"], name: "index_levels_on_question_four_id", using: :btree
-    t.index ["question_one_id"], name: "index_levels_on_question_one_id", using: :btree
-    t.index ["question_three_id"], name: "index_levels_on_question_three_id", using: :btree
-    t.index ["question_two_id"], name: "index_levels_on_question_two_id", using: :btree
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "questions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "answer_id"
+    t.integer  "level_id"
     t.string   "question_text", null: false
-    t.string   "a1"
-    t.string   "a2"
-    t.string   "a3"
-    t.string   "a4"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end

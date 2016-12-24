@@ -1,0 +1,9 @@
+<% @page_title = "Game Name|Levels" %>
+
+<div class="text-center center">
+	<% @levels.each do |l| %>
+		<div class="btn btn-default btn-lg btn-block">
+			<%= l.level_no %>
+		</div>
+	<% end %>
+</div>

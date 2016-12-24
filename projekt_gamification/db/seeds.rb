@@ -7,9 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 #Concept.destroy_all
-Question.destroy_all
+#Question.destroy_all
 #Answer.destroy_all
-Level.destroy_all
+#Level.destroy_all
 
 #concept_list = [
 #	"1.Uvod u programiranje", 
@@ -23,12 +23,12 @@ Level.destroy_all
 #	Concept.create(name: name)
 #end	
 
-answer_list = [
-	["main()", "Bez main() funkcije javlja pogresku"],
-	["return", "Mora vratit nesto"],
-	["niti jedan argument", "blabla"],
-	["/*komentar*/", "..."]
-]
+#answer_list = [
+#	["main()", "Bez main() funkcije javlja pogresku"],
+#	["return", "Mora vratit nesto"],
+#	["niti jedan argument", "blabla"],
+#	["/*komentar*/", "..."]
+#]
 
 #question_list = [
 #	[1, "Svaki C program mora sadržavati funkciju: ", "void()", "start()", "main()", "glavna()"],
@@ -41,9 +41,9 @@ answer_list = [
 #	[1, 2, 3, 4, 25, 1]
 #]
 
-answer_list.each do |ans, explanation|
-	Answer.create(ans: ans, explanation: explanation)
-end
+#answer_list.each do |ans, explanation|
+#	Answer.create(ans: ans, explanation: explanation)
+#end
 
 #question_list.each do |answer_id, question_text, a1, a2, a3, a4|
 #	Question.create(answer_id: answer_id, question_text: question_text, a1: a1, a2: a2, a3: a3, a4: a4)
@@ -54,8 +54,10 @@ end
 #	Level.create(question_one_id: question_one_id, question_two_id: question_two_id, question_three_id: question_three_id, question_four_id: question_four_id, concept_id: concept_id, level_no: level_no)
 #end
 
-#Answer.create(
-#	ans: 'main()', explanation: 'Bez main() funkcije javlja pogresku'
-#)
+#Level.create(concept_id: 31, level_no: 1)
 
-p "Created #{Answer.count} answers"
+#Question.create(level_id: 1, question_text: "Što od ponuđenog se koristi za komentar?")
+
+Answer.create(question_id: 4, ans: "[komentar]", explanation: "...", correct: false)
+
+p "Created #{Answer.count}"

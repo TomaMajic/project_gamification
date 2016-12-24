@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 	
+  get 'levels/index'
+
   get 'concepts/index'
 
   get 'concept/index'
