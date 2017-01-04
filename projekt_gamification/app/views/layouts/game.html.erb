@@ -5,6 +5,7 @@
 		<%= stylesheet_link_tag('bootstrap', :media => 'all') %>
 		<%= stylesheet_link_tag('users', :media => 'all') %>
 		<%= javascript_include_tag "application" %>	
+		<%= javascript_include_tag "bootstrap.min" %>	
 	</head>
 	<body>
 		<nav class="navbar navbar-default">
@@ -21,7 +22,7 @@
 		   		 </div>
 
 		    <!-- Collect the nav links, forms, and other content for toggling -->
-			    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			    <div class="collapse navbar-collapse nav-color" id="bs-example-navbar-collapse-1">
 			      <ul class="nav navbar-nav navbar-right">
 			      	<li><a href="#">Profile</a></li>
 			        <li>
@@ -34,11 +35,11 @@
 			  </div><!-- /.container-fluid -->
 		</nav>
 
-		<div class="well container-game container">
+		<div class="well container container-game">
 			<%= yield %>
 		</div>
-		<div id="footer">
-			<p id="copyright">&copy; FER</p>
-		</div>
+		<div class="footer">
+      			<p>&copy; FER</p>
+    	</div>
 	</body>
 </html>

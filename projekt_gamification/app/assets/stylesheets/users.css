@@ -43,9 +43,9 @@ body {
 }
 
 .container-form {
-	width: 250px;
+	width: 300px;
 	border-color: #e7e7e7;
-    background-color: #FAFAFA;
+    background-color: #f8f8f8;
 
 }
 
@@ -53,7 +53,7 @@ body {
 	width: 768px;
 	height: 768px;
 	border-color: #e7e7e7;
-    background-color: #FAFAFA;
+    background-color: #f8f8f8;
 }
 
 .center {
@@ -66,4 +66,12 @@ body {
 
 .inline {
 	display: inline-block;
+}
+
+.footer {
+    background-color: #f8f8f8;
+    height: 90px;
+    text-align: right;
+    padding-right: 30px;
+    color: #696969;
 }
