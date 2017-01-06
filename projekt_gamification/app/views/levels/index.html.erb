@@ -2,8 +2,31 @@
 
 <div class="text-center center">
 	<% @levels.each do |l| %>
-		<div class="btn btn-default btn-lg btn-block">
-			<%= link_to(l.level_no, :controller => "questions", :action => "index", :id => l.id)  %>
-		</div>
+		<%= link_to questions_index_path(:id => l.id), :class => "btn btn-default btn-lg btn-block" do %>
+			<%= l.level_no %>
+			<div>
+				<% user_level = UserLevel.where(:user_id => current_user.id, :level_id => l.id).first %>
+				<% status = [] %>
+				<% if !user_level.blank? && (user_level.q4_status == true || user_level.q4_status == false) %>
+					<% user_level.q1_status == true ? status << 1 : nil  %>
+					<% user_level.q2_status == true ? status << 1 : nil  %>
+					<% user_level.q3_status == true ? status << 1 : nil  %>
+					<% user_level.q4_status == true ? status << 1 : nil  %>
+					<% status.pop %>
+					<% if status.length > 0 %>
+						<% status.each do |star| %>
+							X
+						<% end %>
+					<% else %>
+						0 zvizdi
+					<% end %>
+					
+				<% else %>
+					0 zvizdi
+				<% end %>
+				
+			</div>
+		<% end %>
 	<% end %>
+
 </div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161224124815) do
+ActiveRecord::Schema.define(version: 20170106133829) do
 
   create_table "achievements", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.boolean  "complete",   default: false
@@ -89,8 +89,10 @@ ActiveRecord::Schema.define(version: 20161224124815) do
 
   create_table "user_questions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "question_id"
+    t.index ["question_id"], name: "index_user_questions_on_question_id", using: :btree
     t.index ["user_id"], name: "index_user_questions_on_user_id", using: :btree
   end
 

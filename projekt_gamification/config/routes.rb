@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
 	
-  get 'questions/index'
+  get 'questions/index' => 'questions#index', as: 'questions_index'
+  get 'questions/check-correct' => 'questions#check_correct', as: 'check_correct'
+  get 'questions/get-new-question' => 'questions#get_new_question', as: 'get_new_question'
 
-  get 'levels/index'
+  get 'levels/index' => 'levels#index', as: 'levels_index'
 
   get 'concepts/index'
 
