@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get 'questions/check-correct' => 'questions#check_correct', as: 'check_correct'
   get 'questions/get-new-question' => 'questions#get_new_question', as: 'get_new_question'
 
+  get 'levels/check-playable' => 'levels#check_playable', as: 'check_playable'
+
   get 'levels/index' => 'levels#index', as: 'levels_index'
 
   get 'concepts/index'

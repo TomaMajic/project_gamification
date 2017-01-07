@@ -11,17 +11,17 @@
 #Answer.destroy_all
 #Level.destroy_all
 
-#concept_list = [
-#	"1.Uvod u programiranje", 
-#	"2.Tipovi podataka", 
-#	"3.Kontrola toka", 
-#	"4.Polja", 
-#	"5.Pokazivači i polja", 
-#	"6.Funkcije"
-#]
-#concept_list.each do |name|
-#	Concept.create(name: name)
-#end	
+# concept_list = [
+# 	"1.Uvod u programiranje", 
+# 	"2.Tipovi podataka", 
+# 	"3.Kontrola toka", 
+# 	"4.Polja", 
+# 	"5.Pokazivači i polja", 
+# 	"6.Funkcije"
+# ]
+# concept_list.each do |name|
+# 	Concept.create(name: name)
+# end	
 
 #answer_list = [
 #	["main()", "Bez main() funkcije javlja pogresku"],
@@ -54,10 +54,71 @@
 #	Level.create(question_one_id: question_one_id, question_two_id: question_two_id, question_three_id: question_three_id, question_four_id: question_four_id, concept_id: concept_id, level_no: level_no)
 #end
 
-#Level.create(concept_id: 31, level_no: 1)
+Level.create(concept_id: 1, level_no: 1)
+Level.create(concept_id: 1, level_no: 2)
 
-#Question.create(level_id: 1, question_text: "Što od ponuđenog se koristi za komentar?")
+Question.create(level_id: 1, question_text: "Što od ponuđenog se koristi za komentar1?")
+Question.create(level_id: 1, question_text: "Što od ponuđenog se koristi za komentar2?")
+Question.create(level_id: 1, question_text: "Što od ponuđenog se koristi za komentar3?")
+Question.create(level_id: 1, question_text: "Što od ponuđenog se koristi za komentar4?")
+Question.create(level_id: 2, question_text: "Što od ponuđenog se koristi za komentar5?")
+Question.create(level_id: 2, question_text: "Što od ponuđenog se koristi za komentar6?")
+Question.create(level_id: 2, question_text: "Što od ponuđenog se koristi za komentar7?")
+Question.create(level_id: 2, question_text: "Što od ponuđenog se koristi za komentar8?")
 
-Answer.create(question_id: 4, ans: "[komentar]", explanation: "...", correct: false)
+
+
+Answer.create(question_id: 1, ans: "[komentar1]", explanation: "...", correct: false)
+Answer.create(question_id: 1, ans: "[komentar2]", explanation: "...", correct: false)
+Answer.create(question_id: 1, ans: "[komentar3]", explanation: "...", correct: false)
+Answer.create(question_id: 1, ans: "[komentar4]", explanation: "...", correct: true)
+Answer.create(question_id: 2, ans: "[komentar]5", explanation: "...", correct: false)
+Answer.create(question_id: 2, ans: "[komentar6]", explanation: "...", correct: true)
+Answer.create(question_id: 2, ans: "[komentar7]", explanation: "...", correct: false)
+Answer.create(question_id: 2, ans: "[komentar8]", explanation: "...", correct: false)
+Answer.create(question_id: 3, ans: "[komentar9]", explanation: "...", correct: false)
+Answer.create(question_id: 3, ans: "[komentar10]", explanation: "...", correct: false)
+Answer.create(question_id: 3, ans: "[komentar11]", explanation: "...", correct: true)
+Answer.create(question_id: 3, ans: "[komentar12]", explanation: "...", correct: false)
+Answer.create(question_id: 4, ans: "[komentar13]", explanation: "...", correct: false)
+Answer.create(question_id: 4, ans: "[komentar14]", explanation: "...", correct: false)
+Answer.create(question_id: 4, ans: "[komentar15]", explanation: "...", correct: true)
+Answer.create(question_id: 4, ans: "[komentar16]", explanation: "...", correct: false)
+Answer.create(question_id: 5, ans: "[komentar1]", explanation: "...", correct: false)
+Answer.create(question_id: 5, ans: "[komentar2]", explanation: "...", correct: false)
+Answer.create(question_id: 5, ans: "[komentar3]", explanation: "...", correct: false)
+Answer.create(question_id: 5, ans: "[komentar4]", explanation: "...", correct: true)
+Answer.create(question_id: 6, ans: "[komentar]5", explanation: "...", correct: false)
+Answer.create(question_id: 6, ans: "[komentar6]", explanation: "...", correct: true)
+Answer.create(question_id: 6, ans: "[komentar7]", explanation: "...", correct: false)
+Answer.create(question_id: 6, ans: "[komentar8]", explanation: "...", correct: false)
+Answer.create(question_id: 7, ans: "[komentar9]", explanation: "...", correct: false)
+Answer.create(question_id: 7, ans: "[komentar10]", explanation: "...", correct: false)
+Answer.create(question_id: 7, ans: "[komentar11]", explanation: "...", correct: true)
+Answer.create(question_id: 7, ans: "[komentar12]", explanation: "...", correct: false)
+Answer.create(question_id: 8, ans: "[komentar13]", explanation: "...", correct: false)
+Answer.create(question_id: 8, ans: "[komentar14]", explanation: "...", correct: false)
+Answer.create(question_id: 8, ans: "[komentar15]", explanation: "...", correct: true)
+Answer.create(question_id: 8, ans: "[komentar16]", explanation: "...", correct: false)
 
 p "Created #{Answer.count}"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
