@@ -75,3 +75,16 @@ body {
     padding-right: 30px;
     color: #696969;
 }
+
+.btn-moj {
+	margin: 5px !important;
+}
+
+.pitanje {
+	padding: 10px;
+	margin-bottom: 10px;
+}
+
+.odgovor {
+	padding: 5px;
+}
