@@ -1,10 +1,12 @@
 
 $(document).ready(function() {
 
-	$(document).on("click", ".lvl", function() {
+	$(document).on("click", ".lvl", function(e) {
 
 		var id = $(this).data('id');
 		var $_this = $(this);
+		event.preventDefault()
+		var playable_level = $(this).attr('href');
 
 		$.ajax({
 			url: '/levels/check-playable',
@@ -14,6 +16,13 @@ $(document).ready(function() {
 			type: 'get',
 			success: function (data) {
 				console.log("Provjeria je moze li se level igrat: " + data.playable);
+
+				if(data.playable) {
+					window.location = playable_level;
+				}
+				else {
+					alert("This level still hasn't been unlocked!");
+				}
 			}
 		});
 		
