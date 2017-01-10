@@ -7,7 +7,7 @@ $(document).ready(function() {
 		var unlocked_concept = $(this).attr('href');
 
 		$.ajax({
-			url: '/concepts/check_unlocked',
+			url: '/concepts/check-unlocked',
 			data: {
 				id: id
 			},
