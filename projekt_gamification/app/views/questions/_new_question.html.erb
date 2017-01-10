@@ -1,13 +1,13 @@
 <% if !@q.blank? %>
-	<p><%= @q.question_text %></p>
+	<div class="pitanje"><%= @q.question_text %></div>
 	<ol>
 		<% @answers = Answer.where(:question_id => @q.id) %>
 		<% @answers.each do |a| %>
-			<li>
-				<button class="answers" data-id="<%= a.id %>"><%= a.ans %></button>
+			<li class="odgovor">
+				<button class="answers btn btn-default btn-s" data-id="<%= a.id %>"><%= a.ans %></button>
 			</li>
 		<% end %>
 	</ol>
 <% else %>
-	<h1>nema vise pitanja</h1>
+	<h1>nema vise pitanja</h1>		
 <% end %>

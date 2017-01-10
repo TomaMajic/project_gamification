@@ -3,7 +3,9 @@
 <div class="text-center center">
 	<% @concepts.each do |c| %>
 		<div class="">
-			<%= link_to c.name, {:controller => "levels", :action => "index", :concept_id => c.id}, {class: "btn btn-default btn-lg btn-block btn-moj"} %>
+			<%= link_to levels_index_path(:concept_id => c.id), :class => "btn btn-default btn-lg btn-block btn-moj concept-btn", :data => {:id => c.id} do %>
+				<%= c.name %>
+			<% end %>
 		</div>
 	<% end %>
 </div>

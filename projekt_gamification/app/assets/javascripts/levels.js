@@ -1,4 +1,3 @@
-
 $(document).ready(function() {
 
 	$(document).on("click", ".lvl", function(e) {

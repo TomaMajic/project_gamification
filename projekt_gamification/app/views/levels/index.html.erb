@@ -14,8 +14,11 @@
 					<% user_level.q4_status == true ? status << 1 : nil  %>
 					<% status.pop %>
 					<% if status.length > 0 %>
+						<% concept = l.concept %>
 						<% status.each do |star| %>
 							X
+							<% concept.progress += 1 %>
+							<% concept.save %>
 						<% end %>
 					<% else %>
 						0 zvizdi

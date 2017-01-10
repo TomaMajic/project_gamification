@@ -11,7 +11,7 @@ class LevelsController < ApplicationController
 
   	level = Level.find(params[:id])
   	user_level = UserLevel.find_by(:user_id => current_user.id, :level_id => level.id)
-    last_level = UserLevel.order('created_at DESC').last
+    last_level = UserLevel.order('created_at').last
     last_level_status = 0
 
     if !last_level.blank?
@@ -20,9 +20,9 @@ class LevelsController < ApplicationController
 
   	playable = true;
 
-    if level.level_no == 1
+    if level.level_no == 1 || !user_level.blank?
       playable = true  
-    elsif !last_level.blank? && last_level_status >= 1 
+    elsif !last_level.blank? && last_level_status >= 1 && (level.id - last_level.level_id <= 1) 
       playable = true
     else
       playable = false   

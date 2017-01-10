@@ -12,6 +12,7 @@ class QuestionsController < ApplicationController
   	answer = Answer.find(params[:id])
   	question = answer.question
   	level = question.level
+    concept = level.concept
 
   	correct = answer.correct
   	success = true
