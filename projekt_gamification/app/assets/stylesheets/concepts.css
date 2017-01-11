@@ -1,0 +1,13 @@
+.p-bar {
+	height: 10px;
+	width: 200px;
+	position: relative;
+	float: right;
+}
+
+.p-bar-fill {
+	height: 10px;
+	width: 200px;
+	background-color: green;
+	position: absolute;
+}
