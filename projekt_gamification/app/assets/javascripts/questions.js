@@ -30,7 +30,9 @@ $(document).ready(function() {
 				//pricekaj i dohvati sljedece pitanje
 				if (data.success) {
 					q_num += 1;
-					setTimeout(getNewQuestion(q_num), 1000);	
+					setTimeout(function() {
+						getNewQuestion(q_num);
+					}, 1000);	
 				} else {
 					setTimeout(function() {
 						$('.question').empty().append('zavrsia si level s: ' + data.status + '/4');
