@@ -26,10 +26,6 @@ $(document).ready(function() {
 				else {
 					alert("This level still hasn't been unlocked!");
 				}
-
-				if(data.already_played) {
-					//Prominit broj zvjezdica na ovome levelu ako je veci
-				}
 			}
 		});
 		

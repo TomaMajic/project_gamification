@@ -1,5 +1,7 @@
 $(document).ready(function() {
 	
+	var q_num = 1;
+
 	$(document).on("click", ".answers", function() {
 		// $(this).css("background-color", "green");
 		console.log('provjeri jeli tocno');
@@ -12,7 +14,8 @@ $(document).ready(function() {
 		$.ajax({
 			url: '/questions/check-correct',
 			data: {
-				id: id
+				id: id,
+				q_num: q_num
 			},
 			type: 'get',
 			success: function (data) {
@@ -26,7 +29,8 @@ $(document).ready(function() {
 
 				//pricekaj i dohvati sljedece pitanje
 				if (data.success) {
-					setTimeout(getNewQuestion, 1000);	
+					q_num += 1;
+					setTimeout(getNewQuestion(q_num), 1000);	
 				} else {
 					setTimeout(function() {
 						$('.question').empty().append('zavrsia si level s: ' + data.status + '/4');
@@ -43,18 +47,19 @@ $(document).ready(function() {
 
 });
 
-function getNewQuestion() {
-	var level_id = $('.question').data('level-id')
+function getNewQuestion(q_num) {
+	console.log('ovo je broj smece:' + q_num);
+	var level_id = $('.question').data('level-id');
 	$.ajax({
 		url: '/questions/get-new-question',
 		data: {
-			level_id: level_id
+			level_id: level_id,
+			q_num: q_num
 		},
 		type: 'get',
 		success: function (data) {
 			console.log('server je vratia novo pitanje', data);
 			$('.question').empty().append(data.html_content);
-
 		}
 	});
 

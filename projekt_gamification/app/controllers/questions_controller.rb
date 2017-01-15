@@ -18,29 +18,60 @@ class QuestionsController < ApplicationController
   	success = true
   	status = 0
 
+
   	#zabiljezi useru tocno ili krivo i da ga je rjesia
   	user_level = UserLevel.find_by(:user_id => current_user.id, :level_id => level.id)
   	if user_level.blank?
   		user_level = UserLevel.create(:user_id => current_user.id, :level_id => level.id)
   	end
 
+    #ODI MORAS RIJESIT SLUCAJ DA JE VEC ODIGRAN I ODRADIT TO SA ZVIZDAMA
 
-  	if user_level.q1_status != true && user_level.q1_status != false
-  		user_level.q1_status = correct
-  	elsif user_level.q2_status != true && user_level.q2_status != false
- 		user_level.q2_status = correct	
-  	elsif user_level.q3_status != true && user_level.q3_status != false
-		user_level.q3_status = correct
-  	elsif user_level.q4_status != true && user_level.q4_status != false
-		user_level.q4_status = correct
+    if (user_level.q1_status == true || user_level.q1_status == false) && (user_level.q2_status == true || user_level.q2_status == false) && (user_level.q3_status == true || user_level.q3_status == false) && (user_level.q4_status == true || user_level.q4_status == false)
 
-		success = false
-		user_level.q1_status == true ? status += 1 : nil
-		user_level.q2_status == true ? status += 1 : nil
-		user_level.q3_status == true ? status += 1 : nil
-		user_level.q4_status == true ? status += 1 : nil
+      if params[:q_num].to_i == 1
+        if correct
+          user_level.q1_status = correct
+        end 
+      elsif params[:q_num].to_i == 2
+        if correct
+          user_level.q2_status = correct
+        end 
+      elsif params[:q_num].to_i == 3
+        if correct
+          user_level.q3_status = correct
+        end 
+      elsif params[:q_num].to_i == 4
+        if correct
+          user_level.q4_status = correct
+        end 
+        success = false
+        user_level.q1_status == true ? status += 1 : nil
+        user_level.q2_status == true ? status += 1 : nil
+        user_level.q3_status == true ? status += 1 : nil
+        user_level.q4_status == true ? status += 1 : nil
 
-  	end
+      end      
+          
+    else
+
+      if user_level.q1_status != true && user_level.q1_status != false
+        user_level.q1_status = correct
+      elsif user_level.q2_status != true && user_level.q2_status != false
+        user_level.q2_status = correct  
+      elsif user_level.q3_status != true && user_level.q3_status != false
+        user_level.q3_status = correct
+      elsif user_level.q4_status != true && user_level.q4_status != false
+        user_level.q4_status = correct
+
+        success = false
+        user_level.q1_status == true ? status += 1 : nil
+        user_level.q2_status == true ? status += 1 : nil
+        user_level.q3_status == true ? status += 1 : nil
+        user_level.q4_status == true ? status += 1 : nil
+      end
+
+    end  
 
   	user_level.save
   	UserQuestion.create(:user_id => current_user.id, :question_id => question.id)
