@@ -17,6 +17,8 @@ class QuestionsController < ApplicationController
   	correct = answer.correct
   	success = true
   	status = 0
+    replayed_status = 0
+    new_id = 0
 
 
   	#zabiljezi useru tocno ili krivo i da ga je rjesia
@@ -30,26 +32,41 @@ class QuestionsController < ApplicationController
     if (user_level.q1_status == true || user_level.q1_status == false) && (user_level.q2_status == true || user_level.q2_status == false) && (user_level.q3_status == true || user_level.q3_status == false) && (user_level.q4_status == true || user_level.q4_status == false)
 
       if params[:q_num].to_i == 1
-        if correct
-          user_level.q1_status = correct
-        end 
+        replayed_level = UserLevel.create(:user_id => current_user.id, :level_id => level.id)
+        new_id = replayed_level.id
+        replayed_level.q1_status = correct 
+        replayed_level.save
       elsif params[:q_num].to_i == 2
-        if correct
-          user_level.q2_status = correct
-        end 
+        replayed_level = UserLevel.find(params[:u_l_id])
+        new_id = replayed_level.id
+        replayed_level.q2_status = correct
+        replayed_level.save 
       elsif params[:q_num].to_i == 3
-        if correct
-          user_level.q3_status = correct
-        end 
+        replayed_level = UserLevel.find(params[:u_l_id])
+        new_id = replayed_level.id
+        replayed_level.q3_status = correct
+        replayed_level.save
       elsif params[:q_num].to_i == 4
-        if correct
-          user_level.q4_status = correct
-        end 
+        replayed_level = UserLevel.find(params[:u_l_id])
+        new_id = replayed_level.id
+        replayed_level.q4_status = correct
+        replayed_level.save
+
+        replayed_level.q1_status == true ? replayed_status += 1 : nil
+        replayed_level.q2_status == true ? replayed_status += 1 : nil
+        replayed_level.q3_status == true ? replayed_status += 1 : nil
+        replayed_level.q4_status == true ? replayed_status += 1 : nil
+
+        if replayed_status >= status
+          user_level.q1_status = replayed_level.q1_status
+          user_level.q2_status = replayed_level.q2_status
+          user_level.q3_status = replayed_level.q3_status
+          user_level.q4_status = replayed_level.q4_status
+          status = replayed_status
+        end  
         success = false
-        user_level.q1_status == true ? status += 1 : nil
-        user_level.q2_status == true ? status += 1 : nil
-        user_level.q3_status == true ? status += 1 : nil
-        user_level.q4_status == true ? status += 1 : nil
+
+        replayed_level.destroy
 
       end      
           
@@ -76,7 +93,7 @@ class QuestionsController < ApplicationController
   	user_level.save
   	UserQuestion.create(:user_id => current_user.id, :question_id => question.id)
 
-  	render :json => { :correct => correct, :success => success, :status => status }
+  	render :json => { :correct => correct, :success => success, :status => status, :new_id => new_id }
   end
 
   def get_new_question

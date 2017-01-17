@@ -11,17 +11,17 @@
 #Answer.destroy_all
 #Level.destroy_all
 
-# concept_list = [
-# 	"1.Uvod u programiranje", 
-# 	"2.Tipovi podataka", 
-# 	"3.Kontrola toka", 
-# 	"4.Polja", 
-# 	"5.Pokazivači i polja", 
-# 	"6.Funkcije"
-# ]
-# concept_list.each do |name|
-# 	Concept.create(name: name)
-# end	
+ concept_list = [
+ 	"1.Uvod u programiranje", 
+ 	"2.Tipovi podataka", 
+ 	"3.Kontrola toka", 
+ 	"4.Polja", 
+ 	"5.Pokazivači i polja", 
+ 	"6.Funkcije"
+ ]
+ concept_list.each do |name|
+ 	Concept.create(name: name)
+ end	
 
 #answer_list = [
 #	["main()", "Bez main() funkcije javlja pogresku"],
