@@ -1,13 +1,33 @@
 $(document).ready(function() {
 
-	$(".p-bar > span").each(function() {
-  		$(this)
-    	.data("origWidth", $(this).width())
-    	.width(0)
-    	.animate({
-     		 width: $(this).data("origWidth") // or + "%" if fluid
-    	}, 1200);
+	var progress = [];
+	var i = 0;
+	var perc = 0;
+
+	$.ajax({
+		url: '/concepts/check-progress',
+		data: {
+
+		},
+		type: 'get',
+		success: function (data) {
+			progress = data.progress;
+			console.log(progress);
+			$(".p-bar > span").each(function() {
+				perc = (progress[i]/30)*100;
+				console.log(perc);
+		  		$(this)
+		    	.data("origWidth", $(this).width())
+		    	.width(0)
+		    	.animate({
+		     		 width: perc + '%' // or + "%" if fluid
+		    	}, 1200);
+		    	i += 1;
+			});
+		}		
 	});
+
+
 
 	$(document).on("click", ".concept-btn", function(e) {
 

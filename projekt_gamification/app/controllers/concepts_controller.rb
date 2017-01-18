@@ -20,8 +20,20 @@ class ConceptsController < ApplicationController
 	  	end 	
   	end
 
-	render :json => { :unlocked => unlocked }
+	  render :json => { :unlocked => unlocked }
 
   end
+
+  def check_progress
+    @concepts = Concept.all
+    progress = []
+
+    @concepts.each do |conc|
+      progress << conc.progress
+    end  
+
+    render :json => { :progress => progress }
+
+  end  
 
 end

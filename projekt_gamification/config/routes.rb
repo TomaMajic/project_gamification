@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   get 'concepts/index' => 'concepts#index', as: 'concepts_index'
   get 'concepts/check-unlocked' => 'concepts#check_unlocked', as: 'check_unlocked'
-  
+  get 'concepts/check-progress' => 'concepts#check_progress', as: 'check_progress' 
 
   
 

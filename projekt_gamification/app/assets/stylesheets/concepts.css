@@ -1,8 +1,8 @@
 .concept {
 	width: 80%;
-    height: 200px;
-    margin: auto;
-    padding: 10px;
+  height: 200px;
+  margin: auto;
+  padding: 10px;
 }
 
 .category {
@@ -15,9 +15,9 @@
 
 .p-bar {
 	float: left;
-    position: relative;
-    width: 50%;
-    height: 30px;
+  position: relative;
+  width: 50%;
+  height: 30px;
 	background: #555;
 	-moz-border-radius: 25px;
 	-webkit-border-radius: 25px;
