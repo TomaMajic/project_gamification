@@ -30,9 +30,8 @@ ActiveRecord::Schema.define(version: 20170106133829) do
 
   create_table "concepts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
-    t.integer  "progress",   default: 0
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "leaderboards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -67,10 +66,11 @@ ActiveRecord::Schema.define(version: 20170106133829) do
 
   create_table "user_concepts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
-    t.integer  "level_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["level_id"], name: "index_user_concepts_on_level_id", using: :btree
+    t.integer  "concept_id"
+    t.integer  "progress",   default: 0
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.index ["concept_id"], name: "index_user_concepts_on_concept_id", using: :btree
     t.index ["user_id"], name: "index_user_concepts_on_user_id", using: :btree
   end
 

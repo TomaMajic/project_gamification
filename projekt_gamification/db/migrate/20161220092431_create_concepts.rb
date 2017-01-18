@@ -3,7 +3,6 @@ class CreateConcepts < ActiveRecord::Migration[5.0]
     create_table :concepts do |t|
 
       t.string "name"
-      t.integer "progress", :default => 0
       
       t.timestamps
     end
