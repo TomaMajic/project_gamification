@@ -3,28 +3,31 @@
 		<tr>
 			<th id='ac-h'><h1><%= current_user.email %> Achievements</h1></th>
 		</tr>
+
+		<%if !@user_achievements.blank?%>
+			<% completed = [] %>
+			<% @user_achievements.each do |u_a| %>
+				<% if u_a.user_id == current_user.id %>
+					<% completed << u_a.achievement_id %>
+				<% end %>
+			<% end %>
+		<% end %>	
+
 		<% @achievements.each do |a| %>
-			
-			<tr>
-			<%if !@user_achievements.blank?%>
-				<% @user_achievements.each do |u_a| %>
- 				<% if u_a.user_id == current_user.id && u_a.achievement_id == a.id %>
+			<% if completed.include? a.id %>
+				<tr>
 					<td class='ach-c'>
 						<%= a.name %>
 					</td>
-				<% else %>
+				</tr>
+			<% else %>
+				<tr>	
 					<td class='ach-inc'>
 						<%= a.name %>
-					</td>						
-				<% end %>
-				<% end %>
-			<% else %>
-				<td class='ach-inc'>
-					<%= a.name %>
-				</td>
+					</td>
+				</tr>
 			<% end %>
-			</tr>
-
 		<% end %>
+
 	</table>
 </div>

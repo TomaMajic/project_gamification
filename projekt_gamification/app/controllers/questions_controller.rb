@@ -76,7 +76,18 @@ class QuestionsController < ApplicationController
           user_concept.progress -= (status-1)
           user_concept.progress += (replayed_status-1)
 
+          user_achievement = UserAchievement.find_by(:user_id => current_user.id, :achievement_id => 3)
+          if user_achievement.blank? && user_concept.progress == 30
+            user_achievement = UserAchievement.create(:user_id => current_user.id, :achievement_id => 3)
+          end
+
           status = replayed_status
+
+          user_achievement = UserAchievement.find_by(:user_id => current_user.id, :achievement_id => 2)
+          if user_achievement.blank? && status == 4
+            user_achievement = UserAchievement.create(:user_id => current_user.id, :achievement_id => 2)
+          end  
+
         end  
         success = false
 
@@ -102,6 +113,17 @@ class QuestionsController < ApplicationController
         user_level.q4_status == true ? status += 1 : nil
 
         user_concept.progress += (status-1)
+
+          user_achievement = UserAchievement.find_by(:user_id => current_user.id, :achievement_id => 3)
+          if user_achievement.blank? && user_concept.progress == 30
+            user_achievement = UserAchievement.create(:user_id => current_user.id, :achievement_id => 3)
+          end
+
+        user_achievement = UserAchievement.find_by(:user_id => current_user.id, :achievement_id => 2)
+        if user_achievement.blank? && status == 4
+          user_achievement = UserAchievement.create(:user_id => current_user.id, :achievement_id => 2)
+        end  
+
       end
 
     end  

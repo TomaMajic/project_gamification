@@ -13,14 +13,16 @@ class ConceptsController < ApplicationController
     user_concept = UserConcept.find_by(:user_id => current_user.id, :concept_id => params[:id])
     prev_user_concept = UserConcept.find_by(:user_id => current_user.id, :concept_id => (params[:id].to_i - 1))
 
-    if user_concept.blank?
+    if user_concept.blank? && params[:id].to_i != 1
       if !prev_user_concept.blank?
         if prev_user_concept.progress < 25
           unlocked = false
         end
       else
         unlocked = false
-      end    
+      end
+    else 
+      unlocked ==true      
     end  
 
 	  render :json => { :unlocked => unlocked }
@@ -40,7 +42,6 @@ class ConceptsController < ApplicationController
         progress << 0  
       end  
     end  
-    
 
     render :json => { :progress => progress }
 
