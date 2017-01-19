@@ -1,13 +1,13 @@
 <% @page_title = "Game Name|Learn" %>
 
-<div class="concept">
+<div class="center center2">
 	<% @concepts.each do |c| %>
-		<div class="category">
-			<%= link_to levels_index_path(:concept_id => c.id), :class => "btn btn-default btn-lg btn-block btn-moj concept-btn", :data => {:id => c.id} do %>
+		<div class="inline btn-concept">
+			<%= link_to levels_index_path(:concept_id => c.id), :class => "btn btn-default btn-lg btn-block", :data => {:id => c.id} do %>
 				<%= c.name %>
 			<% end %>
-		</div>
-		<div class='p-bar animate'>
+</div>
+		<div class='p-bar animate inline'>
 			<span style='width: 0%'></span>
 		</div>
 	<% end %>

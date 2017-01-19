@@ -56,7 +56,7 @@ body {
 
 .container-game {
 	position: relative;
-	width: 768px !important;
+	width: 900 !important;
 	height: 768px !important;
 	border-color: #e7e7e7;
     background-color: #f8f8f8;
@@ -73,11 +73,14 @@ body {
     top: 50%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
+}
 
+.center2 {
+	width: 500px;
 }
 
 .inline {
-	display: inline-block;
+	display: inline-block !important;
 }
 
 .footer {
@@ -92,6 +95,10 @@ body {
 	margin: 5px !important;
 }
 
+.btn-concept {
+	width: 49% !important;
+	margin-bottom: 5px;
+}
 .pitanje {
 	padding: 10px;
 	margin-bottom: 10px;
@@ -99,4 +106,15 @@ body {
 
 .odgovor {
 	padding: 5px;
+}
+
+.left {
+	float: left;
+}
+.right {
+	float: right;
+}
+
+.abs{
+	position: absolute;
 }
