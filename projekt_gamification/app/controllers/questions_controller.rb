@@ -30,6 +30,7 @@ class QuestionsController < ApplicationController
   	user_level = UserLevel.find_by(:user_id => current_user.id, :level_id => level.id)
   	if user_level.blank?
   		user_level = UserLevel.create(:user_id => current_user.id, :level_id => level.id)
+      user_achievement = UserAchievement.create(:user_id => current_user.id, :achievement_id => 1)
   	end
 
 

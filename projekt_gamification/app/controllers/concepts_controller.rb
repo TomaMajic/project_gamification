@@ -40,6 +40,7 @@ class ConceptsController < ApplicationController
         progress << 0  
       end  
     end  
+    
 
     render :json => { :progress => progress }
 

@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 	
+  get 'achievements/index'
+
+  get 'achievement/index'
+
   get 'questions/index' => 'questions#index', as: 'questions_index'
   get 'questions/check-correct' => 'questions#check_correct', as: 'check_correct'
   get 'questions/get-new-question' => 'questions#get_new_question', as: 'get_new_question'
@@ -10,6 +14,8 @@ Rails.application.routes.draw do
   get 'concepts/index' => 'concepts#index', as: 'concepts_index'
   get 'concepts/check-unlocked' => 'concepts#check_unlocked', as: 'check_unlocked'
   get 'concepts/check-progress' => 'concepts#check_progress', as: 'check_progress' 
+
+  
 
   
 

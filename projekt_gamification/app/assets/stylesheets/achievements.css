@@ -1,0 +1,17 @@
+table, th, td {
+   width: 100%;
+}
+
+.ac-h {
+	text-align: center;
+}
+
+.ach-inc {
+	color: #ccffcc;
+	text-align: center;
+}
+
+.ach-c {
+	color: #b30000;
+	text-align: center;
+}

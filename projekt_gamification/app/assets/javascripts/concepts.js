@@ -3,30 +3,30 @@ $(document).ready(function() {
 	var progress = [];
 	var i = 0;
 	var perc = 0;
+	var ctrl = $('body').data('controller');
+	var act = $('body').data('action');
 
-	$.ajax({
-		url: '/concepts/check-progress',
-		data: {
-
-		},
-		type: 'get',
-		success: function (data) {
-			progress = data.progress;
-			console.log(progress);
-			$(".p-bar > span").each(function() {
-				perc = (progress[i]/30)*100;
-				console.log(perc);
-		  		$(this)
-		    	.data("origWidth", $(this).width())
-		    	.width(0)
-		    	.animate({
-		     		 width: perc + '%' // or + "%" if fluid
-		    	}, 1200);
-		    	i += 1;
-			});
-		}		
-	});
-
+	if(ctrl == 'concepts' && act == 'index') {
+		$.ajax({
+			url: '/concepts/check-progress',
+			type: 'get',
+			success: function (data) {
+				progress = data.progress;
+				console.log(progress);
+				$(".p-bar > span").each(function() {
+					perc = (progress[i]/30)*100;
+					console.log(perc);
+			  		$(this)
+			    	.data("origWidth", $(this).width())
+			    	.width(0)
+			    	.animate({
+			     		 width: perc + '%' // or + "%" if fluid
+			    	}, 1200);
+			    	i += 1;
+				});
+			}		
+		});
+	}
 
 
 	$(document).on("click", ".concept-btn", function(e) {
