@@ -13,14 +13,24 @@
 			<% end %>
 		<% end %>	
 
-		<% @achievements.each do |a| %>
-			<% if completed.include? a.id %>
-				<tr>
-					<td class='ach-c'>
-						<%= a.name %>
-					</td>
-				</tr>
-			<% else %>
+		<% if !(completed.blank?) %>
+			<% @achievements.each do |a| %>
+				<% if completed.include? a.id %>
+					<tr>
+						<td class='ach-c'>
+							<%= a.name %>
+						</td>
+					</tr>
+				<% else %>
+					<tr>	
+						<td class='ach-inc'>
+							<%= a.name %>
+						</td>
+					</tr>
+				<% end %>
+			<% end %>
+		<% else %>
+			<% @achievements.each do |a| %>
 				<tr>	
 					<td class='ach-inc'>
 						<%= a.name %>
@@ -28,6 +38,6 @@
 				</tr>
 			<% end %>
 		<% end %>
-
 	</table>
 </div>
+   
