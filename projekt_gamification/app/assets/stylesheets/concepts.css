@@ -1,15 +1,8 @@
 .concept {
-	width: 80%;
-  height: 200px;
-  margin: auto;
-  padding: 10px;
 }
 
 .category {
-	float: left;
 	margin-top: 10px;
-	margin-bottom: 10px;
-	margin-right: 20px;
 	width: 50%;
 }
 
