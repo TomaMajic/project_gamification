@@ -39,7 +39,7 @@ $(document).ready(function() {
 					}, 1000);	
 				} else {
 					setTimeout(function() {
-						$('.question').empty().append('zavrsia si level s: ' + data.status + '/4');
+						$('.question').empty().append('zavrsia si level s: ' + data.status + '/4').css("font-size", "30px");
 					},1000)
 				}
 				
