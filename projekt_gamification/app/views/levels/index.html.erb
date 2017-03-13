@@ -1,7 +1,7 @@
 <% @page_title = "Game Name|Levels" %>
 
 
-<div class="text-center center">
+<div class="text-center center lvls">
 	<% @levels.each do |l| %>
 		<%= link_to questions_index_path(:id => l.id), :class => "btn btn-default btn-lg btn-block lvl", :data => {:id => l.id} do %>
 			<%= l.level_no %>
@@ -31,3 +31,5 @@
 	<% end %>
 
 </div>
+
+

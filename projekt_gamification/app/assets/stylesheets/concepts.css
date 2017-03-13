@@ -1,4 +1,32 @@
 .concept {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.center2 {
+  width: 500px;
+}
+
+.inline {
+  display: inline-block !important;
+}
+
+.btn-concept {
+  width: 49% !important;
+  margin-bottom: 5px;
+}
+
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
+
+.abs{
+  position: absolute;
 }
 
 .category {

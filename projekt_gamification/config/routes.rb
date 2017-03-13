@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
 	
-  get 'achievements/index'
-
-  get 'achievement/index'
+  get 'achievements/index' => 'achievements#index', as: 'achievements_index'
 
   get 'questions/index' => 'questions#index', as: 'questions_index'
   get 'questions/check-correct' => 'questions#check_correct', as: 'check_correct'

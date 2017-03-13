@@ -29,21 +29,6 @@ body {
   	margin-bottom: 20px;
 }
 
-.center {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
-}
-
-.center2 {
-	width: 500px;
-}
-
-.inline {
-	display: inline-block !important;
-}
-
 .footer {
     background-color: #f8f8f8;
     height: 90px;
@@ -56,26 +41,68 @@ body {
 	margin: 5px !important;
 }
 
-.btn-concept {
-	width: 49% !important;
-	margin-bottom: 5px;
-}
-.pitanje {
-	padding: 10px;
-	margin-bottom: 10px;
+.home-top {
+    height: 50%;
+    width: 100%;
 }
 
-.odgovor {
-	padding: 5px;
+.home-bottom {
+    height: 50%;
+    width: 100%;
 }
 
-.left {
-	float: left;
-}
-.right {
-	float: right;
+#top-left {
+    width: 50%;
+    float: left;
+    height: 100%;
 }
 
-.abs{
-	position: absolute;
+#top-right {
+    width: 50%;
+    float: left;
+    height: 100%;
 }
+
+#bottom {
+    height: 100%;
+}
+
+.home-btn {
+    height: 100%;
+}
+
+.compete {
+    height: 100%;
+}
+
+.ach {
+    height: 100%;
+    width: 100%;
+}
+
+.headline {
+    font-size: 35px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
