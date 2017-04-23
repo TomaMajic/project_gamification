@@ -1,24 +1,15 @@
 <% @page_title = "Learn C" %>
 
-<div class="text-center center home-top">
-	<div id="top-left">
-		<%= link_to concepts_index_path(), :class => 'btn-moj btn btn-default btn-lg btn-block home-btn' do %>
-			<!-- <%= image_tag("learnC.jpg", :alt => "learn C", :class => "learn-c") %> -->
-			<span class='headline'>LEARN C</span>
-		<% end %>	
-	</div>
-	<div id="top-right">
-		<%= link_to concepts_index_path(), :class => 'btn-moj btn btn-default btn-lg btn-block home-btn' do %>
-		<!-- 	<%= image_tag("compete.jpg", :alt => "compete", :class => "compete") %> -->
-			<span class='headline'>TIME TRIAL</span>
-		<% end %>
-	</div>
-</div>	
-<div class="text-center center home-bottom">	
-	<div id="bottom">
-		<%= link_to achievements_index_path(), :class => 'btn-moj btn btn-default btn-lg btn-block home-btn' do %>
-		<!-- 	<%= image_tag("achievements.jpg", :alt => "achievements", :class => "ach") %> -->
-			<span class='headline'>ACHIEVEMENTS</span>
-		<% end %>
-	</div>
+<div class="text-center center btn">
+	<%= link_to concepts_index_path(), :class => 'btn-moj btn btn-default btn-lg btn-block' do %>
+		LEARN C
+	<% end %>	
+
+	<%= link_to concepts_index_path(), :class => 'btn-moj btn btn-default btn-lg btn-block' do %>
+		TIME TRIAL
+	<% end %>
+
+	<%= link_to achievements_index_path(), :class => 'btn-moj btn btn-default btn-lg btn-block' do %>
+		ACHIEVEMENTS
+	<% end %>
 </div>
