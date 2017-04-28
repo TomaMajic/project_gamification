@@ -1,0 +1,35 @@
+.modal {
+	margin: 120px auto;
+	max-width: 720px;
+	background: #ffffff;
+}
+
+.full-overlay {
+	display: none;
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 5;
+	background: rgba(57, 59, 62, 0.75);
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+.non-disposable {
+	display: none;
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 5;
+	background: rgba(57, 59, 62, 0.75);
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+.hidden {
+	display: none !important;
+}

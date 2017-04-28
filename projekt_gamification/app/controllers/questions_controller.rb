@@ -144,5 +144,12 @@ class QuestionsController < ApplicationController
 
   end
 
+  def get_questions_for_review
+
+    questionArray = UserQuestion.find(:all, :order => "id desc", :limit => 4).reverse 
+    success = false
+    success = true if questionArray.size == 4
+    render :json => { :questionArray => questionArray, :success => success }
+  end
 
 end

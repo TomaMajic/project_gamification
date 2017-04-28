@@ -39,17 +39,37 @@ $(document).ready(function() {
 					}, 1000);	
 				} else {
 					setTimeout(function() {
-						$('.question').empty().append('zavrsia si level s: ' + data.status + '/4').css("font-size", "30px");
-					},1000)
-				}
-				
+						var html =  '<div class="score">' +
+										'zavrsia si level s: ' + data.status + '/4' +
+									'</div>' +
+									'<div class="review">' +	
+										'<button class="review-btn btn moj-btn">Review</button>' +
+									'</div>';
 
+						$('.question').empty().append(html).css("font-size", "30px");
+					},1000);
+
+					$(document).on("click", ".review-btn", function() {
+
+					// 	$.ajax({
+					// 		url: '/questions/get-questions-for-review',
+					// 		data: {
+
+					// 		},
+					// 		type: 'get',
+					// 		success: function (data) {
+					// 			console.log('server je izlista pitanja od ovog levela', data);
+					// 			//$('.question').empty().append(data.html_content);
+					// 		}
+					// 	});
+						__Modals.openModal()
+						$('.modal').fadeIn(200).append();		
+
+					});
+				}
 			}
 		});
-
-		
 	});
-
 
 });
 
