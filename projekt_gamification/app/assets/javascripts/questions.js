@@ -2,6 +2,7 @@ $(document).ready(function() {
 	
 	var q_num = 1;
 	var u_l_id = 1;
+	// var user_achievements = []
 
 	$(document).on("click", ".answers", function() {
 		// $(this).css("background-color", "green");
@@ -22,6 +23,7 @@ $(document).ready(function() {
 			type: 'get',
 			success: function (data) {
 				console.log('server je vratia jeli tocno: ', data.correct);
+				user_achievements.push(data.user_achievement)
 
 				if (data.correct) {
 					$_this.css("background-color", "green");
@@ -58,8 +60,33 @@ $(document).ready(function() {
 							type: 'get',
 							success: function (data) {
 								console.log('server je izlista pitanja od ovog levela', data);
+								correct_answers = data.correctAnswers
+								wrong_answers = data.wrongAnswers
+
+								var html =  '<h3>Tocno odgovorena pitanja: </h3>' +
+											'<div class="correct-answers">' +
+												'<ul class="correct-list">' +
+													'<li>' + correct_answers[0] + '</li>' +
+													'<li>' + correct_answers[1] + '</li>' +
+													'<li>' + correct_answers[2] + '</li>' +
+													'<li>' + correct_answers[3] + '</li>' +
+												'</ul>' +
+											'</div>' + 
+											'<h3>Pogresno odgovorena pitanja: </h3>' +
+											'<div class="wrong-answers">' +
+												'<ul class="wrong-list">' +
+													'<li>' + wrong_answers[0] + '</li>' +
+													'<li>' + wrong_answers[1] + '</li>' +
+													'<li>' + wrong_answers[2] + '</li>' +
+													'<li>' + wrong_answers[3] + '</li>' +
+												'</ul>' +
+											'</div>'; //+ 
+											// '<h3>Achievementi</h3>' + 
+											// user_achievements[0] + 
+											// user_achievements[1];
+
 								__Modals.openModal()
-								$('.modal').fadeIn(200).append("ALALALALALALALALLALALALALLAALLA");								
+								$('.modal').fadeIn(200).append(html);								
 							}
 						});
 					});
