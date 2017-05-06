@@ -51,20 +51,17 @@ $(document).ready(function() {
 
 					$(document).on("click", ".review-btn", function() {
 
-					// 	$.ajax({
-					// 		url: '/questions/get-questions-for-review',
-					// 		data: {
-
-					// 		},
-					// 		type: 'get',
-					// 		success: function (data) {
-					// 			console.log('server je izlista pitanja od ovog levela', data);
-					// 			//$('.question').empty().append(data.html_content);
-					// 		}
-					// 	});
-						__Modals.openModal()
-						$('.modal').fadeIn(200).append();		
-
+						$.ajax({
+							url: '/questions/get-last-questions-for-review',
+							data: {
+							},
+							type: 'get',
+							success: function (data) {
+								console.log('server je izlista pitanja od ovog levela', data);
+								__Modals.openModal()
+								$('.modal').fadeIn(200).append("ALALALALALALALALLALALALALLAALLA");								
+							}
+						});
 					});
 				}
 			}

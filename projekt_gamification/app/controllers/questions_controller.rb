@@ -144,9 +144,9 @@ class QuestionsController < ApplicationController
 
   end
 
-  def get_questions_for_review
+  def get_last_questions_for_review
 
-    questionArray = UserQuestion.find(:all, :order => "id desc", :limit => 4).reverse 
+    questionArray = UserQuestion.order('created_at DESC').limit(4)
     success = false
     success = true if questionArray.size == 4
     render :json => { :questionArray => questionArray, :success => success }
