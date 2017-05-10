@@ -1,6 +1,4 @@
 class QuestionsController < ApplicationController
-
-
   layout 'game'
   
   def index
@@ -19,10 +17,6 @@ class QuestionsController < ApplicationController
   	status = 0
     replayed_status = 0
     new_id = 0
-  
-    # Za achievemente, svaki put kad se doda novi achievement posalji ga jsonon tako sto:
-    # Pri kreiranju novog UserAchievementa dohvati achievement s tim id-em
-    # Rendraj taj achievement i tamo ga spremaj array, koji ces izlistat u modalu "Review" 
 
     # Ako je prvi level zabiljezi mu kategoriju ako nije dohvati i rijesi progress
     user_concept = UserConcept.find_by(:user_id => current_user.id, :concept_id => concept.id)
@@ -131,7 +125,14 @@ class QuestionsController < ApplicationController
     user_concept.save
   	UserQuestion.create(:user_id => current_user.id, :question_id => question.id)
 
-  	render :json => { :correct => correct, :success => success, :status => status, :new_id => new_id, :user_achievement => user_achievement }
+    # Za achievemente, svaki put kad se doda novi achievement posalji ga jsonon tako sto:
+    # Pri kreiranju novog UserAchievementa dohvati achievement s tim id-em
+    # Rendraj taj achievement i tamo ga spremaj u array, koji ces izlistat u modalu "Review" 
+    @achievement = Achievement.find(user_achievement.achievement_id) if !user_achievement.blank?
+    achievement_name = @achievement.name if !@achievement.blank?
+
+
+  	render :json => { :correct => correct, :success => success, :status => status, :new_id => new_id, :achievement => achievement_name }
   end
 
   def get_new_question
