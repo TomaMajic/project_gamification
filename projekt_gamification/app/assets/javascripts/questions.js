@@ -75,7 +75,7 @@ $(document).ready(function() {
 								// Create wrong answers string
 								wrong_answers_string = "";
 								for(i = 0; i < wrong_answers.length; i++) {
-									wrong_answers_string += ('<li>' + wrong_answers[i] + '</li>');
+									wrong_answers_string += ('<li>' + wrong_answers[i] + '  The correct answer was: ' + data.corrections[i] + ", Learn more => " + data.explanations[i] + '</li>');
 								}
 
 								// Create star string
@@ -89,8 +89,10 @@ $(document).ready(function() {
 								for(i = 0; i < user_achievements.length; i++) {
 									achievements_string += ('<li>' + user_achievements[i] + '</li>');
 								}
+								user_achievements = []; 
 
 								var html =  '<div class="review-questions-modal">' +
+												'<h1 class="modal-title">' + "Level" + data.level_no + '</h1>' +
 												'<h2 id="stars">' + stars_string + '</h2>' +
 												'<h3>Tocno odgovorena pitanja: </h3>' +
 												'<div class="correct-answers">' +

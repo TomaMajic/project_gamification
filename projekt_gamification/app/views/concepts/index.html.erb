@@ -1,16 +1,20 @@
 <% @page_title = "Learn C" %>
 <% if false %>
-</div class "center title">
+</div class "title">
 	<h2>Learn C</h2>
 	<p>Play through the levels, earn achievements, complete the categories and become an expert in C</p>
 </div>
 <% end %>
 
-<div class="center center2 concept">
+<div class="concept">
+	<div class="concepts-title">
+		<h2> Learn C</h2>
+		<p>Play through the levels, earn achievements, complete the categories and become an expert in C</p>
+	</div>
 	<% @concepts.each do |c| %>
 		<div class="inline btn-concept category">
 			<%= link_to levels_index_path(:concept_id => c.id), :class => "concept-btn", :data => {:id => c.id} do %>
-				<%= c.name %>
+				<div class="parent-concept"><%= c.name %></div>
 			<% end %>
 		</div>
 		<div class='p-bar animate inline'>

@@ -29,8 +29,12 @@
 			<% end %>
 		</ol>
 	<% else %>
-		<h1>nema pitanja</h1>
-		
+		<% if false %>
+			<% @questions = Question.where(:level_id => params[:id]) %>
+			<% @questions.each do |q| %>
+				<% UserQuestion.find_by(:question_id => q.id).destroy %>
+			<% end %>
+		<% end %>	
 	<% end %>
 </div>
 <% if !@q.blank? %>

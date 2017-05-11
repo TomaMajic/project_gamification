@@ -149,6 +149,8 @@ class QuestionsController < ApplicationController
 
     correctAnswers = []
     wrongAnswers = []
+    corrections = []
+    explanations = []
     @userQuestionArray = UserQuestion.order('created_at DESC').limit(4)
     success = false
     success = true if @userQuestionArray.size == 4
@@ -159,6 +161,7 @@ class QuestionsController < ApplicationController
 
     # Dohvacanje zadnjeg UserLevela
     @this_user_level = UserLevel.order("created_at").last
+    level_no = Level.find(@this_user_level.level_id).level_no
 
     # Provjera statusa 
     @userQuestionArray.each_with_index do |user_question, index|
@@ -170,28 +173,36 @@ class QuestionsController < ApplicationController
           correctAnswers << @question.question_text
         else
           wrongAnswers << @question.question_text
+          corrections << Answer.where(:correct => true).find_by(:question_id => @question.id).ans 
+          explanations << Answer.where(:correct => true).find_by(:question_id => @question.id).explanation
         end 
       when 1
         if @this_user_level.q3_status
           correctAnswers << @question.question_text
         else
           wrongAnswers << @question.question_text
+          corrections << Answer.where(:correct => true).find_by(:question_id => @question.id).ans 
+          explanations << Answer.where(:correct => true).find_by(:question_id => @question.id).explanation
         end         
       when 2
         if @this_user_level.q2_status
           correctAnswers << @question.question_text
         else
           wrongAnswers << @question.question_text
+          corrections << Answer.where(:correct => true).find_by(:question_id => @question.id).ans 
+          explanations << Answer.where(:correct => true).find_by(:question_id => @question.id).explanation
         end 
       when 3
         if @this_user_level.q1_status
           correctAnswers << @question.question_text
         else
           wrongAnswers << @question.question_text
+          corrections << Answer.where(:correct => true).find_by(:question_id => @question.id).ans 
+          explanations << Answer.where(:correct => true).find_by(:question_id => @question.id).explanation
         end 
       end             
     end
-    render :json => { :correctAnswers => correctAnswers, :wrongAnswers => wrongAnswers, :success => success }
+    render :json => { :correctAnswers => correctAnswers, :wrongAnswers => wrongAnswers, :level_no => level_no, :corrections => corrections, :explanations => explanations, :success => success }
   end
 
 end
