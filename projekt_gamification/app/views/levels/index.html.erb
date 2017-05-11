@@ -1,10 +1,11 @@
 <% @page_title = "Game Name|Levels" %>
-<div class="title"><%=  Concept.find(params[:concept_id]).name %> leveli</div>
+<div class="title"><%=  Concept.find(params[:concept_id]).name.upcase %></div>
 
 <div class="text-center center lvls">
 	<% @levels.each do |l| %>
 		<%= link_to questions_index_path(:id => l.id), :class => "btn btn-default btn-lg btn-block lvl", :data => {:id => l.id} do %>
-			<%= l.level_no %>
+			Level <%= l.level_no %>
+			<div><%= image_tag "locked.png", class: "locked-image" if UserLevel.where(:user_id => current_user.id, :level_id => l.id).first.blank? and l.id != 1 and UserLevel.where(:user_id => current_user.id, :level_id => l.id-1).first.blank? %></div>
 			<div>
 				<% user_level = UserLevel.where(:user_id => current_user.id, :level_id => l.id).first %>
 				<% status = [] %>
@@ -15,21 +16,31 @@
 					<% user_level.q4_status == true ? status << 1 : nil  %>
 					<% status.pop %>
 					<% if status.length > 0 %>
-						<% status.each do |star| %>
-							X
-						<% end %>
+						<div class="stars">
+							<% status.each do |star| %>
+								<%= image_tag "gold_star.png", class: "gold-star" %>
+							<% end %>
+							<% (1..3-status.count).each do |star| %>
+								<%= image_tag "silver_star.png", class: "silver-star" %>
+							<% end %>
+						</div> 
 					<% else %>
-						---	         
+						<div class="stars">
+							<% (1..3).each do |star| %>
+								<%= image_tag "silver_star.png", class: "silver-star" %>
+							<% end %> 
+						</div>     
 					<% end %>
-					
 				<% else %>
-                    ---                
-				<% end %>
-				
+					<div class="stars">
+						<% (1..3).each do |star| %>
+							<%= image_tag "silver_star.png", class: "silver-star" %>
+						<% end %> 
+					</div>  										              
+				<% end %>				
 			</div>
 		<% end %>
 	<% end %>
-
 </div>
 
 

@@ -9,7 +9,7 @@
 <div class="center center2 concept">
 	<% @concepts.each do |c| %>
 		<div class="inline btn-concept category">
-			<%= link_to levels_index_path(:concept_id => c.id), :class => "", :data => {:id => c.id} do %>
+			<%= link_to levels_index_path(:concept_id => c.id), :class => "concept-btn", :data => {:id => c.id} do %>
 				<%= c.name %>
 			<% end %>
 		</div>
