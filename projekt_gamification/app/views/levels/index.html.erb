@@ -1,5 +1,5 @@
 <% @page_title = "Game Name|Levels" %>
-
+<div class="title"><%=  Concept.find(params[:concept_id]).name %> leveli</div>
 
 <div class="text-center center lvls">
 	<% @levels.each do |l| %>

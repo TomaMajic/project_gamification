@@ -24,7 +24,6 @@ $(document).ready(function() {
 			type: 'get',
 			success: function (data) {
 				console.log('server je vratia jeli tocno: ', data.correct);
-				console.log('Tvoji achievementi: ', user_achievements);
 				if (data.achievement != null)
 					user_achievements.push(data.achievement)
 
@@ -87,7 +86,7 @@ $(document).ready(function() {
 
 								// Create achievements string
 								achievements_string = "";
-								for(i = 0; i < wrong_answers.length - 1; i++) {
+								for(i = 0; i < user_achievements.length; i++) {
 									achievements_string += ('<li>' + user_achievements[i] + '</li>');
 								}
 

@@ -1,9 +1,15 @@
-<% @page_title = "Game Name|Learn" %>
+<% @page_title = "Learn C" %>
+<% if false %>
+</div class "center title">
+	<h2>Learn C</h2>
+	<p>Play through the levels, earn achievements, complete the categories and become an expert in C</p>
+</div>
+<% end %>
 
 <div class="center center2 concept">
 	<% @concepts.each do |c| %>
 		<div class="inline btn-concept category">
-			<%= link_to levels_index_path(:concept_id => c.id), :class => "btn btn-default btn-lg btn-block concept-btn", :data => {:id => c.id} do %>
+			<%= link_to levels_index_path(:concept_id => c.id), :class => "", :data => {:id => c.id} do %>
 				<%= c.name %>
 			<% end %>
 		</div>
