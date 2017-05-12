@@ -75,7 +75,11 @@ $(document).ready(function() {
 								// Create wrong answers string
 								wrong_answers_string = "";
 								for(i = 0; i < wrong_answers.length; i++) {
-									wrong_answers_string += ('<li>' + wrong_answers[i] + '  The correct answer was: ' + data.corrections[i] + ", Learn more => " + data.explanations[i] + '</li>');
+									wrong_answers_string += ('<li>' + wrong_answers[i] + 
+										'<div>' + 'Tocan odgovor je bio: ' + '<span class="correct-text">' + data.corrections[i] + '</span>' + '</div>' +
+										'Saznaj vise => ' + 
+										'<a href=' + data.explanations[i] + '>' + data.explanations[i] + '</a>' + 
+										'</li>');
 								}
 
 								// Create star string
@@ -94,13 +98,13 @@ $(document).ready(function() {
 								var html =  '<div class="review-questions-modal">' +
 												'<h1 class="modal-title">' + "Level" + data.level_no + '</h1>' +
 												'<h2 id="stars">' + stars_string + '</h2>' +
-												'<h3>Tocno odgovorena pitanja: </h3>' +
+												'<h3 class="correct-headline">Tocno odgovorena pitanja: </h3>' +
 												'<div class="correct-answers">' +
 													'<ul class="correct-list">' +
 														correct_answers_string +
 													'</ul>' +
 												'</div>' + 
-												'<h3>Pogresno odgovorena pitanja: </h3>' +
+												'<h3 class="wrong-headline">Pogresno odgovorena pitanja: </h3>' +
 												'<div class="wrong-answers">' +
 													'<ul class="wrong-list">' +
 														wrong_answers_string +

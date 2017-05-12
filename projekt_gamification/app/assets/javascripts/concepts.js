@@ -52,7 +52,43 @@ $(document).ready(function() {
 				}
 			}
 		});
-		
 	});
+
+	$(document).on("click", ".main-cat", function() {
+
+		var c_id = $(this).data('id');
+
+		$.ajax({
+			url: '/concepts/get-subcategories',
+			data: {
+				id: c_id
+			},
+			type: 'get',
+			success: function (data) {
+				console.log("Dobavia podkategorije: " + data.subcategories);
+
+				if(data.unlocked) {
+					
+				}
+				else {
+					
+				}
+			}
+		});
+
+
+	});
+
+
+
+
+
+
+
+
+
+
+
+
 
 });

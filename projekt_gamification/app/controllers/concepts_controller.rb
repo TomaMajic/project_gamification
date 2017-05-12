@@ -3,7 +3,7 @@ class ConceptsController < ApplicationController
   layout 'game'
   
   def index
-  	@concepts = Concept.all
+  	@concepts = Concept.where(:parent_id => nil)
   end
 
   def check_unlocked 
@@ -26,7 +26,6 @@ class ConceptsController < ApplicationController
     end  
 
 	  render :json => { :unlocked => unlocked }
-
   end
 
   def check_progress
@@ -44,7 +43,20 @@ class ConceptsController < ApplicationController
     end  
 
     render :json => { :progress => progress }
-
   end  
 
+  def get_subcategories
+
+    success = false
+    @subcategories = Concept.where(:parent_id => params[:id])
+    success = true if @subcategories.size >= 1
+    sub_names = []
+
+    @subcategories.each do |sub|
+
+      sub_names << sub.name
+    end
+
+    render :json => { :subcategories => sub_names, :success => success }
+  end
 end

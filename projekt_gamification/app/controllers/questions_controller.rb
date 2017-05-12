@@ -84,6 +84,8 @@ class QuestionsController < ApplicationController
             user_achievement = UserAchievement.find_by(:user_id => current_user.id, :achievement_id => 2)
             if user_achievement.blank? && status == 4
               user_achievement = UserAchievement.create(:user_id => current_user.id, :achievement_id => 2)
+            else
+              user_achievement = nil
             end  
 
           end  
@@ -117,6 +119,8 @@ class QuestionsController < ApplicationController
           user_achievement = UserAchievement.find_by(:user_id => current_user.id, :achievement_id => 2)
           if user_achievement.blank? && status == 4
             user_achievement = UserAchievement.create(:user_id => current_user.id, :achievement_id => 2)
+          else
+            user_achievement = nil
           end  
         end
     end  
