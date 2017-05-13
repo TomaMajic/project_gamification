@@ -26,12 +26,12 @@ Concept.create(name: "2.1Uvod u programiranje 1.dio", parent_id: 2)
 Concept.create(name: "3.1Uvod u programiranje 1.dio", parent_id: 3)
 
 
-Level.create(concept_id: 1, level_no: 1)
-Level.create(concept_id: 1, level_no: 2)
-Level.create(concept_id: 1, level_no: 3)
-Level.create(concept_id: 2, level_no: 1)
-Level.create(concept_id: 2, level_no: 2)
-Level.create(concept_id: 2, level_no: 3)
+Level.create(concept_id: 7, level_no: 1)
+Level.create(concept_id: 7, level_no: 2)
+Level.create(concept_id: 7, level_no: 3)
+Level.create(concept_id: 8, level_no: 1)
+Level.create(concept_id: 8, level_no: 2)
+Level.create(concept_id: 8, level_no: 3)
 
 
 Question.create(level_id: 1, question_text: "Svaki C program mora sadržavati funkciju:")

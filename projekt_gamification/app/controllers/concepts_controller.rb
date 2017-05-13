@@ -13,7 +13,7 @@ class ConceptsController < ApplicationController
     user_concept = UserConcept.find_by(:user_id => current_user.id, :concept_id => params[:id])
     prev_user_concept = UserConcept.find_by(:user_id => current_user.id, :concept_id => (params[:id].to_i - 1))
 
-    if user_concept.blank? && params[:id].to_i != 1
+    if user_concept.blank? && params[:id].to_i != 7
       if !prev_user_concept.blank?
         if prev_user_concept.progress < 25
           unlocked = false
@@ -30,7 +30,8 @@ class ConceptsController < ApplicationController
 
   def check_progress
 
-    @concepts = Concept.all
+    @concepts = Concept.where.not(:parent_id => nil)
+    puts @concepts
     progress = []
 
     @concepts.each do |conc|
