@@ -22,7 +22,7 @@ class ConceptsController < ApplicationController
         unlocked = false
       end
     else 
-      unlocked ==true      
+      unlocked = true      
     end  
 
 	  render :json => { :unlocked => unlocked }
@@ -50,13 +50,15 @@ class ConceptsController < ApplicationController
     success = false
     @subcategories = Concept.where(:parent_id => params[:id])
     success = true if @subcategories.size >= 1
-    sub_names = []
+    @sub_names = []
 
     @subcategories.each do |sub|
-
-      sub_names << sub.name
+      @sub_names << sub.name
     end
 
-    render :json => { :subcategories => sub_names, :success => success }
+    respond_to do |format|
+      @html_content = render_to_string :partial => 'concepts/subcategories_list'
+      format.json { render :json => { :html_content => @html_content } }
+    end
   end
 end

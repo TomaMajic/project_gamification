@@ -14,14 +14,8 @@
 	<% @concepts.each do |c| %>
 		<div class="inline btn-concept category">
 			<%= link_to(c.name, 'javascript:;', :class => "main-cat", :data => {:id => c.id} ) %>
+			<div id=<%=c.id%>></div>
 		</div>	
-		<% if false %>
-			<div class="inline btn-concept category">
-				<%= link_to levels_index_path(:concept_id => c.id), :class => "concept-btn", :data => {:id => c.id} do %>
-					<div class="parent-concept"><%= c.name %></div>
-				<% end %>
-			</div>
-		<% end %>	
 		<div class='p-bar animate inline'>
 			<span style='width: 0%'></span>
 		</div>

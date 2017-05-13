@@ -56,39 +56,27 @@ $(document).ready(function() {
 
 	$(document).on("click", ".main-cat", function() {
 
+		var classList = $(this).attr('class').split(/\s+/);
 		var c_id = $(this).data('id');
+		var append_help = '#'+c_id;		
 
-		$.ajax({
-			url: '/concepts/get-subcategories',
-			data: {
-				id: c_id
-			},
-			type: 'get',
-			success: function (data) {
-				console.log("Dobavia podkategorije: " + data.subcategories);
+		if ($.inArray('listed', classList) == -1) {
+			$(this).addClass('listed');
 
-				if(data.unlocked) {
-					
+			$.ajax({
+				url: '/concepts/get-subcategories',
+				data: {
+					id: c_id
+				},
+				type: 'get',
+				success: function (data) {
+					$(append_help).empty().append(data.html_content).removeClass(".inline");
 				}
-				else {
-					
-				}
-			}
-		});
-
-
+			});
+		}
+		else {
+			$(this).removeClass('listed');
+			$(append_help).empty();
+		}
 	});
-
-
-
-
-
-
-
-
-
-
-
-
-
 });

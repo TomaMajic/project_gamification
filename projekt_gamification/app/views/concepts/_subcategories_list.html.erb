@@ -1,0 +1,7 @@
+<% @subcategories.each do |sub| %>
+	<div class="">
+		<%= link_to levels_index_path(:concept_id => sub.id), :class => "concept-btn", :data => {:id => sub.id} do %>
+			<div class="sub-concept"><%= sub.name %></div>
+		<% end %>
+	</div>
+<% end %>
