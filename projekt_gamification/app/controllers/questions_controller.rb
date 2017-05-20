@@ -209,4 +209,10 @@ class QuestionsController < ApplicationController
     render :json => { :correctAnswers => correctAnswers, :wrongAnswers => wrongAnswers, :level_no => level_no, :corrections => corrections, :explanations => explanations, :success => success }
   end
 
+  def return_to_levels
+    respond_to do |format|
+      @html_content = render_to_string :partial => 'questions/return_to_levels'
+      format.json { render :json => { :html_content => @html_content } }
+    end    
+  end
 end

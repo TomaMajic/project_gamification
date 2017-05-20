@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'questions/check-correct' => 'questions#check_correct', as: 'check_correct'
   get 'questions/get-new-question' => 'questions#get_new_question', as: 'get_new_question'
   get 'questions/get-last-questions-for-review' => 'questions#get_last_questions_for_review', as: 'get_last_questions_for_review'
+  get 'questions/return-to-levels' => 'questions#return_to_levels', as: 'return_to_levels'
 
   get 'levels/index' => 'levels#index', as: 'levels_index'
   get 'levels/check-playable' => 'levels#check_playable', as: 'check_playable'

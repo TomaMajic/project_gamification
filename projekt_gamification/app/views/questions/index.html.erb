@@ -1,24 +1,16 @@
 <%@page_title = "Level"%>
+<%level = Level.find(params[:id])%>
 
-<% if false %>
-	<div>
-		<% @questions.each do |q| %>
-			<% @answers = Answer.where(:question_id => q.id) %>
-			<div>
-				<p><%= h q.question_text %></p>
-				<ol>
-					<% @answers.each do |a| %>
-						<li><button><%= a.ans %></button></li>
-					<% end %>
-				</ol>
-			</div>
-		<% end %>
-	</div>
-<% end %>
+<div class="title">Level <%= level.level_no%></div>
+<div class="question_boxes">
+	<% (1..4).each do |q_num| %>
+		<% class_name = "question_box" + q_num.to_s %>
+		<button class=<%=class_name%> disabled="disabled"><%= q_num %></button>
+	<% end %>
+</div>
 <div class="question" data-level-id="<%= params[:id] %>">
 	<% if !@q.blank? %>
-		<div class="pitanje"><%= @q.question_text %>
-			
+		<div class="pitanje"><%= @q.question_text %>		
 		</div>
 		<ol>
 			<% @answers = Answer.where(:question_id => @q.id) %>
@@ -38,5 +30,5 @@
 	<% end %>
 </div>
 <% if !@q.blank? %>
-	<%= link_to "nazad na biranje levela", levels_index_path(:concept_id => @q.level.concept_id)  %>	
+	<%= link_to "<< povratak na biranje levela", levels_index_path(:concept_id => @q.level.concept_id), :class => "give-up"  %>	
 <% end %>

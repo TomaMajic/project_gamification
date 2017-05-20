@@ -4,7 +4,7 @@ $(document).ready(function() {
 
 		var id = $(this).data('id');
 		var $_this = $(this);
-		event.preventDefault()
+		event.preventDefault();
 		var playable_level = $(this).attr('href');
 
 		$.ajax({

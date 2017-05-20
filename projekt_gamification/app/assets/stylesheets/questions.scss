@@ -35,3 +35,31 @@
         color: #0A8E1E;
     }
 }
+
+.level-boxes {
+    display: inline;
+}
+
+.return-to-levels {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+
+    p {
+        text-align: center;
+    }
+
+    .return-to-levels-buttons {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+        div {
+            margin: 0 12px;
+        }
+    }   
+}

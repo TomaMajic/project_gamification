@@ -4,6 +4,7 @@ $(document).ready(function() {
 	var u_l_id = 1;
 	var user_achievements = []
 	var stars = 0;
+	var gold_star_path = "<%= asset_path('gold_star.png') %>"
 
 	$(document).on("click", ".answers", function() {
 		// $(this).css("background-color", "green");
@@ -27,11 +28,14 @@ $(document).ready(function() {
 				if (data.achievement != null)
 					user_achievements.push(data.achievement)
 
+				var class_name = '.question_box' + q_num;
 				if (data.correct) {
 					$_this.css("background-color", "green");
+					$(class_name).css("background-color", "green")
 					stars += 1;
 				} else {
 					$_this.css("background-color", "red");
+					$(class_name).css("background-color", "red")
 				}
 
 				//pricekaj i dohvati sljedece pitanje
@@ -45,10 +49,10 @@ $(document).ready(function() {
 				} else {
 					setTimeout(function() {
 						var html =  '<div class="score">' +
-										'zavrsia si level s: ' + data.status + '/4' +
+										'Level završen s rezultatom: ' + data.status + '/4' +
 									'</div>' +
 									'<div class="review">' +	
-										'<button class="review-btn btn moj-btn">Review</button>' +
+										'<button class="review-btn btn moj-btn">Prikaži više</button>' +
 									'</div>';
 
 						$('.question').empty().append(html).css("font-size", "30px");
@@ -76,8 +80,8 @@ $(document).ready(function() {
 								wrong_answers_string = "";
 								for(i = 0; i < wrong_answers.length; i++) {
 									wrong_answers_string += ('<li>' + wrong_answers[i] + 
-										'<div>' + 'Tocan odgovor je bio: ' + '<span class="correct-text">' + data.corrections[i] + '</span>' + '</div>' +
-										'Saznaj vise => ' + 
+										'<div>' + 'Točan odgovor je bio: ' + '<span class="correct-text">' + data.corrections[i] + '</span>' + '</div>' +
+										'Saznaj više => ' + 
 										'<a href=' + data.explanations[i] + '>' + data.explanations[i] + '</a>' + 
 										'</li>');
 								}
@@ -85,7 +89,7 @@ $(document).ready(function() {
 								// Create star string
 								stars_string = "";
 								for(i = 1; i < stars; i++) {
-									stars_string += "X";
+									stars_string += "<img src= " + gold_star_path + ">";
 								}
 
 								// Create achievements string
@@ -98,19 +102,19 @@ $(document).ready(function() {
 								var html =  '<div class="review-questions-modal">' +
 												'<h1 class="modal-title">' + "Level" + data.level_no + '</h1>' +
 												'<h2 id="stars">' + stars_string + '</h2>' +
-												'<h3 class="correct-headline">Tocno odgovorena pitanja: </h3>' +
+												'<h3 class="correct-headline">Točno odgovorena pitanja: </h3>' +
 												'<div class="correct-answers">' +
 													'<ul class="correct-list">' +
 														correct_answers_string +
 													'</ul>' +
 												'</div>' + 
-												'<h3 class="wrong-headline">Pogresno odgovorena pitanja: </h3>' +
+												'<h3 class="wrong-headline">Pogrešno odgovorena pitanja: </h3>' +
 												'<div class="wrong-answers">' +
 													'<ul class="wrong-list">' +
 														wrong_answers_string +
 													'</ul>' +
 												'</div>' + 
-												'<h3>Achievementi</h3>' + 
+												'<h3>Postignuća</h3>' + 
 												'<div class="achievements">' +
 													'<ul class="achievement-list">' +
 														achievements_string +
@@ -126,6 +130,22 @@ $(document).ready(function() {
 				}
 			}
 		});
+	});
+
+	$(document).on("click", ".give-up", function(e) {
+		event.preventDefault();
+		var back_to_levels = $(this).attr('href');
+
+		$.ajax({
+			url: '/questions/return-to-levels',
+			data: {
+			},
+			type: 'get',
+			success: function (data) {
+				__Modals.openModal();
+				$('.modal').fadeIn(200).append(data.html_content);
+			}
+		});		
 	});
 
 });
