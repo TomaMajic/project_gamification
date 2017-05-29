@@ -1,16 +1,31 @@
-// Place all the styles related to the Levels controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
 .lvls {
+
 	position: absolute;
     top: 50%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
+    text-align: center;
+
+    .lvl {
+    	
+    	display: inline-block;
+    	margin: 10px 20px 10px 20px;
+    	width: 20%;
+    }
+
+    #hack-div {
+    	color: #fff;
+    	opacity: 0;
+    }
+
+
 }
 
 .title {
+	padding-top: 20px;
 	text-align: center;
 	font-size: 25px;
 	color: #0A5;
 } 
+
+

@@ -1,15 +1,24 @@
-<% @page_title = "Learn C" %>
+<% @page_title = "C Učilica" %>
+<% user_progress = UserConcept.where(user_id: current_user.id).sum(:progress) %>
+
+<h1 class="title">C UČILICA</h1>
+<div class="profile">
+	<div class="welcome">Dobrodošli <%= @user.email%></div>
+	<div class="user-name">Ime: <%= @user.email.split(/@/).first %></div>
+	<div class="is-active">Aktivan: <p class="active">DA<p></div>
+	<div class="current-progress">Ukupno <%= image_tag "gold_star.png", class: "gold-star" %>: <%= user_progress %></div>
+</div>
 
 <div class="text-center center btn">
 	<%= link_to concepts_index_path(), :class => 'btn-moj btn btn-default btn-lg btn-block' do %>
-		LEARN C
+		UČENJE
 	<% end %>	
 
-	<%= link_to concepts_index_path(), :class => 'btn-moj btn btn-default btn-lg btn-block' do %>
-		TIME TRIAL
+	<%= link_to users_review_path(), :class => 'btn-moj btn btn-default btn-lg btn-block' do %>
+		PREGLED STARIH PITANJA
 	<% end %>
 
 	<%= link_to achievements_index_path(), :class => 'btn-moj btn btn-default btn-lg btn-block' do %>
-		ACHIEVEMENTS
+		POSTIGNUĆA
 	<% end %>
 </div>

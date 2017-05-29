@@ -145,7 +145,15 @@ $(document).ready(function() {
 				__Modals.openModal();
 				$('.modal').fadeIn(200).append(data.html_content);
 			}
-		});		
+		});	
+
+		$(document).on("click", ".yes-btn", function() {
+			window.location = back_to_levels;
+		});
+
+		$(document).on("click", ".no-btn", function() {
+			__Modals.modalShutdown();
+		});	
 	});
 
 });

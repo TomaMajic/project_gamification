@@ -6,13 +6,12 @@ class Question < ApplicationRecord
 
 	def self.get_new_unanswered_question(level_id, current_user)
 		new_question = Question.where(:level_id => level_id).order("RAND()")
-		#q id[1,2,3,4]
 		user_answered_array = []
 		user_answered = UserQuestion.where(:user_id => current_user.id)
+
 		user_answered.each do |ua|
 			user_answered_array << ua.question_id
 		end
-		#q id[1,3,4]
 
 		new_question.each do |question|
 			if !user_answered_array.include? question.id
@@ -21,7 +20,6 @@ class Question < ApplicationRecord
 		end
 
 		return nil
-
 	end
 
 end

@@ -76,6 +76,7 @@ $(document).ready(function() {
 		}
 		else {
 			$(this).removeClass('listed');
+			$(this).removeClass('inline');
 			$(append_help).empty();
 		}
 	});

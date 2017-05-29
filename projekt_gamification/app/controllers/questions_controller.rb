@@ -140,12 +140,12 @@ class QuestionsController < ApplicationController
   end
 
   def get_new_question
-  	@q = Question.get_new_unanswered_question(params[:level_id], current_user)# .where(:level_id => params[:level_id]).order("RAND()").first
+  	@q = Question.get_new_unanswered_question(params[:level_id], current_user)
+    
   	respond_to do |format|
   	  @html_content = render_to_string :partial => 'questions/new_question'
   	  format.json { render :json => { :html_content => @html_content } }
   	end
-
   end
 
   def get_last_questions_for_review

@@ -1,11 +1,22 @@
-<% @page_title = "Game Name|Levels" %>
-<div class="title"><%=  Concept.find(params[:concept_id]).name.upcase %></div>
+<% @page_title = "Razine" %>
+<div>
+	<div class="title"><%=  Concept.find(params[:concept_id]).name.upcase %></div>
+	<%= link_to concepts_index_path() do %>
+		Povratak na odabir kategorija
+	<% end %>
+</div>
 
-<div class="text-center center lvls">
+<div class="lvls">
 	<% @levels.each do |l| %>
-		<%= link_to questions_index_path(:id => l.id), :class => "btn btn-default btn-lg btn-block lvl", :data => {:id => l.id} do %>
-			Level <%= l.level_no %>
-			<div><%= image_tag "locked.png", class: "locked-image" if UserLevel.where(:user_id => current_user.id, :level_id => l.id).first.blank? and l.id != 1 and UserLevel.where(:user_id => current_user.id, :level_id => l.id-1).first.blank? %></div>
+		<%= link_to questions_index_path(:id => l.id), :class => "btn btn-default btn-lg lvl", :data => {:id => l.id} do %>
+			Razina <%= l.level_no %>
+
+			<% if UserLevel.where(:user_id => current_user.id, :level_id => l.id).first.blank? and l.id != 1 and UserLevel.where(:user_id => current_user.id, :level_id => l.id-1).first.blank? %>
+				<div><%= image_tag "locked.png", class: "locked-image"  %></div>
+			<% else %>
+				<div id="hack-div">AAAA</div>
+			<% end %>
+
 			<div>
 				<% user_level = UserLevel.where(:user_id => current_user.id, :level_id => l.id).first %>
 				<% status = [] %>

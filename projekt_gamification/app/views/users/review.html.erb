@@ -1,0 +1,8 @@
+<% @page_title = "Pregled pitanja" %>
+
+<div class="review-container">
+<% @user_concepts.each do |user_concept| %>
+	<div class="concept-review"><%= link_to(user_concept.concept.name, 'javascript:;', :class => "rev-cat title", :data => {:id => user_concept.concept_id} ) %></div>
+	<div id=<%=user_concept.concept_id%>></div>
+<% end %>
+</div>

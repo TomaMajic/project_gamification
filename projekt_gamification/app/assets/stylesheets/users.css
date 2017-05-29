@@ -40,9 +40,49 @@ body {
     margin: 5px !important;
 }
 
+.review-answer {
+    color: green;
+}
 
+.is-active {
+    display: inline-block;
+}
 
+.active {
+    color: green;
+    display: inline;
+}
 
+.profile {
+    font-size: 18px;
+}
+
+.review-container {
+    text-align: center;
+    display: block;
+    text-decoration: none;
+}
+
+.rev-cat:visited {
+    text-decoration: none;
+    color: #0A5;
+}
+
+.rev-cat:hover {
+    text-decoration: none;
+    color: inherit;
+    color: #0A5;
+}
+
+.review {
+    float: left;
+    display: inline-block;
+    margin: 10px 15px 10px 15px;
+    padding: 5px 5px 5px 5px;
+    background-color: #fff;
+    width: 180px;
+    height: 25%;
+}
 
 
 
