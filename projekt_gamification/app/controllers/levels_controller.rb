@@ -4,7 +4,12 @@ class LevelsController < ApplicationController
 
   def index
   	@levels = Level.where(:concept_id => params[:concept_id])
+  end
 
+  def create
+    @level = Level.new(level_params)
+    @level.save
+    redirect_to url_for(:controller => :admins, :action => :index)
   end
 
   def check_playable
@@ -40,4 +45,10 @@ class LevelsController < ApplicationController
   	render :json => {:playable => playable, :already_played => already_played, :completed => completed}
 
   end	
+
+  private
+
+  def level_params
+    params.require(:level).permit(:concept_id, :level_no)
+  end
 end

@@ -1,9 +1,9 @@
+<% @page_title = "Postignuća" %>
 <div class='achievements'>
+	<div class="ach-h">
+		Postignuća
+	</div>
 	<table>
-		<tr>
-			<th id='ac-h'><h1><%= current_user.email %> Achievements</h1></th>
-		</tr>
-
 		<%if !@user_achievements.blank?%>
 			<% completed = [] %>
 			<% @user_achievements.each do |u_a| %>
@@ -19,12 +19,14 @@
 					<tr>
 						<td class='ach-c'>
 							<%= a.name %>
+							<%= image_tag "achievement_img.png", class: "ach-completed" %>
 						</td>
 					</tr>
 				<% else %>
 					<tr>	
 						<td class='ach-inc'>
 							<%= a.name %>
+							<%= image_tag "no_sign.png", class: "ach-incomplete" %>
 						</td>
 					</tr>
 				<% end %>
@@ -34,6 +36,7 @@
 				<tr>	
 					<td class='ach-inc'>
 						<%= a.name %>
+						<%= image_tag "no_sign.png", class: "ach-incomplete" %>
 					</td>
 				</tr>
 			<% end %>

@@ -1,9 +1,9 @@
 <div class="review-questions">
 	<% @review_questions.each_with_index do |review_question, index| %> 
 		<div class="review">
-			<div class="review-question"><%= review_question %>    </div>
-			<div class="review-answer"><%= @review_answers[index].ans %>    </div>
-			<div class="learn-more"><a href=<%= @review_answers[index].explanation %>>Saznaj više</a>     </div>
+			<div class="review-question"><%= review_question %></div>
+			<div class="review-answer"><%= @review_answers[index].ans %></div>
+			<div class="learn-more"><a href=<%= @review_answers[index].explanation %>>Saznaj više</a></div>
 			</br>
 		</div>
 	<% end %>

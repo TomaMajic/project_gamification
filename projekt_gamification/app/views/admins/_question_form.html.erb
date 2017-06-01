@@ -1,0 +1,13 @@
+<%= form_for(@question) do |f| %>
+	<div>	
+		<%= f.label :level_id %>
+		<%= f.text_field :level_id %>
+	</div>
+	<div> 
+		<%= f.label :question_text %>
+		<%= f.text_field :question_text %>
+	</div>
+	<div>
+		<%= f.submit %>
+	</div>
+<% end %>

@@ -123,9 +123,12 @@ Answer.create(question_id: 16, ans: "#define 3.14159 as PI", explanation: "...",
 Answer.create(question_id: 16, ans: "Ništa od ponuđenog", explanation: "...", correct: false)
 
 
-Achievement.create(name: 'Odigran prvi level')
-Achievement.create(name: 'Skupljene 3 zvjezdice na jednom levelu')
+Achievement.create(name: 'Odigrana prva razina')
+Achievement.create(name: 'Skupljene 3 zvjezdice na jednoj razini')
 Achievement.create(name: 'Kategorija 100% savladana')
+Achievement.create(name: 'Skupljeno 5 zvjezdica')
+Achievement.create(name: 'Skupljeno 10 zvjezdica')
+Achievement.create(name: 'Skupljeno 15 zvjezdica')
 
 p "Created #{Answer.count}"
 

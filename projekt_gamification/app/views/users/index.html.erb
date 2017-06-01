@@ -7,6 +7,7 @@
 	<div class="user-name">Ime: <%= @user.email.split(/@/).first %></div>
 	<div class="is-active">Aktivan: <p class="active">DA<p></div>
 	<div class="current-progress">Ukupno <%= image_tag "gold_star.png", class: "gold-star" %>: <%= user_progress %></div>
+	<div class="current-progress">Ukupno <%= image_tag "achievement_img.png", class: "gold-star" %>: <%= UserAchievement.all.count %></div>
 </div>
 
 <div class="text-center center btn">

@@ -19,6 +19,10 @@ Rails.application.routes.draw do
   get 'users/review' => 'users#review', as: 'users_review'  
   get 'users/get-category-questions' => 'users#get_category_questions', as: 'get_category_questions' 
 
+  resources :questions
+  resources :levels
+  resources :answers
+  resources :concepts
   
   devise_for :users
 

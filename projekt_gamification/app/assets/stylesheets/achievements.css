@@ -2,18 +2,25 @@ table, th, td {
    width: 100%;
 }
 
-#ac-h {
-	padding-bottom: 50px;
+
+.ach-h {
+	text-align: center;
+	font-size: 25px;
+	margin-bottom: 20px;
+	padding-bottom: 30px;
+	padding-top: 30px;
 }
 
 .ach-inc {
 	color: #bababa;
 	text-align: center;
 	font-size: 25px;
+	display: inline-block;
 }
 
 .ach-c {
-	color: #f4c242;
+	color: #0A5;
 	text-align: center;
 	font-size: 25px;
+	display: inline-block;
 }

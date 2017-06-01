@@ -6,6 +6,12 @@ class ConceptsController < ApplicationController
   	@concepts = Concept.where(:parent_id => nil)
   end
 
+  def create
+    @concept = Concept.new(concept_params)
+    @concept.save
+    redirect_to url_for(:controller => :admins, :action => :index)
+  end
+
   def check_unlocked 
 
   	unlocked = true
@@ -61,5 +67,11 @@ class ConceptsController < ApplicationController
       @html_content = render_to_string :partial => 'concepts/subcategories_list'
       format.json { render :json => { :html_content => @html_content } }
     end
+  end
+
+  private
+
+  def concept_params
+    params.require(:concept).permit(:name, :parent_id)
   end
 end

@@ -6,6 +6,12 @@ class QuestionsController < ApplicationController
   	@q = Question.get_new_unanswered_question(params[:id], current_user)
   end
 
+  def create
+    @question = Question.new(question_params)
+    @question.save
+    redirect_to url_for(:controller => :admins, :action => :index)
+  end
+
   def check_correct
   	answer = Answer.find(params[:id])
   	question = answer.question
@@ -126,6 +132,9 @@ class QuestionsController < ApplicationController
     end  
 
   	user_level.save
+    user_achievement = UserAchievement.create(:user_id => current_user.id, :achievement_id => 4) if UserAchievement.find_by(:achievement_id => 4).blank? and user_concept.progress >= 5
+    user_achievement = UserAchievement.create(:user_id => current_user.id, :achievement_id => 5) if UserAchievement.find_by(:achievement_id => 5).blank? and user_concept.progress >= 10
+    user_achievement = UserAchievement.create(:user_id => current_user.id, :achievement_id => 6) if UserAchievement.find_by(:achievement_id => 6).blank? and user_concept.progress >= 15
     user_concept.save
   	UserQuestion.create(:user_id => current_user.id, :question_id => question.id)
 
@@ -215,4 +224,10 @@ class QuestionsController < ApplicationController
       format.json { render :json => { :html_content => @html_content } }
     end    
   end
+
+  private
+
+    def question_params
+      params.require(:question).permit(:level_id, :question_text)
+    end
 end

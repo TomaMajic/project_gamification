@@ -1,0 +1,21 @@
+<%= form_for(@answer) do |f| %>
+	<div>	
+		<%= f.label :question_id %>
+		<%= f.text_field :question_id %>
+	</div>
+	<div> 
+		<%= f.label :ans %>
+		<%= f.text_field :ans %>
+	</div>
+	<div> 
+		<%= f.label :explanation %>
+		<%= f.text_field :explanation %>
+	</div>
+  	<div>
+	    	<%= f.label :correct %>
+	    	<%= f.check_box :correct %>
+	 </div>
+	<div>
+		<%= f.submit %>
+	</div>
+<% end %>
