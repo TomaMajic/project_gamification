@@ -1,13 +1,13 @@
 <%= form_for(@concept) do |f| %>
-	<div>	
-		<%= f.label :name %>
+	<div class="field">	
+		<%= f.label :Ime %>
 		<%= f.text_field :name %>
 	</div>
-	<div> 
-		<%= f.label :parent_id %>
+	<div class="field"> 
+		<%= f.label :Roditelj %>
 		<%= f.text_field :parent_id %>
 	</div>
-	<div>
-		<%= f.submit %>
+	<div class="field sub-btn">
+		<%= f.submit "Stvori" %>
 	</div>
 <% end %>

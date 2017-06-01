@@ -1,21 +1,21 @@
 <%= form_for(@answer) do |f| %>
-	<div>	
-		<%= f.label :question_id %>
+	<div class="field">	
+		<%= f.label :Pitanje %>
 		<%= f.text_field :question_id %>
 	</div>
-	<div> 
-		<%= f.label :ans %>
+	<div class="field"> 
+		<%= f.label :Tekst %>
 		<%= f.text_field :ans %>
 	</div>
-	<div> 
-		<%= f.label :explanation %>
+	<div class="field"> 
+		<%= f.label :Objašnjene %>
 		<%= f.text_field :explanation %>
 	</div>
-  	<div>
-	    	<%= f.label :correct %>
+  	<div class="field">
+	    	<%= f.label :Točan %>
 	    	<%= f.check_box :correct %>
 	 </div>
-	<div>
-		<%= f.submit %>
+	<div class="field sub-btn">
+		<%= f.submit "Stvori" %>
 	</div>
 <% end %>

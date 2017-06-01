@@ -1,15 +1,33 @@
-// Place all the styles related to the admins controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
-.create {
-	font-weight: bold;
-	font-size: 18px;
-	margin-top: 10px;
-}
 
 .admin-title {
 	text-align: center;
 	font-size: 22px;
 	color: #0A5;
 } 
+
+.form {
+
+	text-align: left;
+	margin-bottom: 10px;
+	margin-left: 30%;
+	padding: 5px 5px 5px 5px;
+
+	.create {
+		font-weight: bold;
+		font-size: 18px;
+		margin-top: 5px;
+		color: #5e5e5e;
+	}
+
+	.field {
+		margin-bottom: 3px;
+		text-align: left;
+		width: 20%;
+	}
+
+	.sub-btn {
+		padding-top: 5px;
+	}
+
+
+}

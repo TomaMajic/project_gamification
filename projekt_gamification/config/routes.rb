@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   get 'users/review' => 'users#review', as: 'users_review'  
   get 'users/get-category-questions' => 'users#get_category_questions', as: 'get_category_questions' 
 
+  get 'admins/get-form-for-creation' => 'admins#get_form_for_creation', as: 'get_form_for_creation' 
+
   resources :questions
   resources :levels
   resources :answers

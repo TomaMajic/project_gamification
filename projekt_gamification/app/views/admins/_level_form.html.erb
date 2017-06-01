@@ -1,13 +1,13 @@
 <%= form_for(@level) do |f| %>
-	<div>	
-		<%= f.label :concept_id %>
+	<div class="field">	
+		<%= f.label :Kategorija %>
 		<%= f.text_field :concept_id %>
 	</div>
-	<div> 
-		<%= f.label :level_no %>
+	<div class="field"> 
+		<%= f.label :Broj_razine %>
 		<%= f.text_field :level_no %>
 	</div>
-	<div>
-		<%= f.submit %>
+	<div class="field sub-btn">
+		<%= f.submit "Stvori" %>
 	</div>
 <% end %>

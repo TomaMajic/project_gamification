@@ -1,17 +1,17 @@
 <div class="admin-title">Admin</div>
-<div>
-	<p class="create">Create category:</p>
-	<%= render 'category_form' %>
+<div class="form">
+	<%= link_to("Nova kategorija", 'javascript:;', :class => "create", :data => {:id => "cat"} ) %>
+	<div id="cat"></div>
 </div> 
-<div>
-	<p class="create">Create level:</p>
-	<%= render 'level_form' %>
+<div class="form">
+	<%= link_to("Nova razina", 'javascript:;', :class => "create", :data => {:id => "lev"} ) %>
+	<div id="lev"></div>
 </div> 
-<div>
-	<p class="create">Create question:</p>
-	<%= render 'question_form' %>
+<div class="form">
+	<%= link_to("Novo pitanje", 'javascript:;', :class => "create", :data => {:id => "ques"} ) %>
+	<div id="ques"></div>
 </div> 
-<div>
-	<p class="create">Create answer:</p>
-	<%= render 'answer_form' %>
+<div class="form">
+	<%= link_to("Novi odgovor", 'javascript:;', :class => "create", :data => {:id => "answ"} ) %>
+	<div id="answ"></div>
 </div> 
