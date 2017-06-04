@@ -1,9 +1,11 @@
 .concept {
-    position: absolute;
+    /*position: absolute;
     top: 25%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
-    text-align: center;
+    text-align: center;*/
+    max-width: 720px;
+    margin: auto;
 }
 
 .center2 {
@@ -165,6 +167,22 @@
 .p-bar > span:after, .animate > span > span {
   animation: move 2s linear infinite;
 }*/
+
+.category-container {
+  display: flex;
+
+  .category-status-bar {
+    margin-top: 20px;
+  }
+
+}
+
+#msg {
+  color: #555;
+}
+
+
+
 
 
 

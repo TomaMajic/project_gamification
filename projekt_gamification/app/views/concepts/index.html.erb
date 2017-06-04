@@ -9,15 +9,17 @@
 <div class="concept">
 	<div class="title">
 		<h2>Nauči C</h2>
-		<p>Igraj kviz po razinama, otključavaj nove, zahtjevnije kategorije i zaradi raznovrsna postignuća na putu da savladaš C</p>
+		<p id="msg">Igraj kviz po razinama, otključavaj nove, zahtjevnije kategorije i zaradi raznovrsna postignuća na putu da savladaš C</p>
 	</div>
 	<% @concepts.each do |c| %>
-		<div class="btn-concept category">
-			<div class="cat-name"><%= link_to(c.name, 'javascript:;', :class => "main-cat", :data => {:id => c.id} ) %></div>
-			<div id=<%=c.id%>></div>
-		</div>	
-		<div class='p-bar animate'>
-			<span style='width: 0%'></span>
+		<div class="category-container">
+			<div class="btn-concept category">
+				<div class="cat-name"><%= link_to(c.name, 'javascript:;', :class => "main-cat", :data => {:id => c.id} ) %></div>
+				<div id=<%=c.id%>></div>
+			</div>	
+			<div class="p-bar animate category-status-bar">
+				<span style='width: 0%'></span>
+			</div>
 		</div>
 	<% end %>
 </div>

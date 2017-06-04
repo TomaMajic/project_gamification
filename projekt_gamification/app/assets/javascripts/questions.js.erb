@@ -24,7 +24,6 @@ $(document).ready(function() {
 			},
 			type: 'get',
 			success: function (data) {
-				console.log('server je vratia jeli tocno: ', data.correct);
 				if (data.achievement != null)
 					user_achievements.push(data.achievement)
 
@@ -159,7 +158,7 @@ $(document).ready(function() {
 });
 
 function getNewQuestion(q_num, u_l_id) {
-	console.log('ovo je broj smece:' + q_num);
+
 	var level_id = $('.question').data('level-id');
 	$.ajax({
 		url: '/questions/get-new-question',
@@ -170,7 +169,7 @@ function getNewQuestion(q_num, u_l_id) {
 		},
 		type: 'get',
 		success: function (data) {
-			console.log('server je vratia novo pitanje', data);
+			console.log('server returned a new question', data);
 			$('.question').empty().append(data.html_content);
 		}
 	});
