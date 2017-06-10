@@ -1,4 +1,4 @@
-<%@page_title = "Level"%>
+<%@page_title = "Razina " %>
 <%level = Level.find(params[:id])%>
 
 <div class="title">Level <%= level.level_no%></div>
@@ -30,5 +30,5 @@
 	<% end %>
 </div>
 <% if !@q.blank? %>
-	<%= link_to "<< povratak na biranje levela", levels_index_path(:concept_id => @q.level.concept_id), :class => "give-up"  %>	
+	<%= link_to "<< povratak na biranje razina", levels_index_path(:concept_id => @q.level.concept_id), :class => "give-up"  %>	
 <% end %>

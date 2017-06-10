@@ -48,7 +48,7 @@ $(document).ready(function() {
 				} else {
 					setTimeout(function() {
 						var html =  '<div class="score">' +
-										'Level završen s rezultatom: ' + data.status + '/4' +
+										'Razina završena s rezultatom: ' + data.status + '/4' +
 									'</div>' +
 									'<div class="review">' +	
 										'<button class="review-btn btn moj-btn">Prikaži više</button>' +
@@ -132,27 +132,29 @@ $(document).ready(function() {
 	});
 
 	$(document).on("click", ".give-up", function(e) {
-		event.preventDefault();
-		var back_to_levels = $(this).attr('href');
+		if($('.score') == null) {
+			event.preventDefault();
+			var back_to_levels = $(this).attr('href');
 
-		$.ajax({
-			url: '/questions/return-to-levels',
-			data: {
-			},
-			type: 'get',
-			success: function (data) {
-				__Modals.openModal();
-				$('.modal').fadeIn(200).append(data.html_content);
-			}
-		});	
+			$.ajax({
+				url: '/questions/return-to-levels',
+				data: {
+				},
+				type: 'get',
+				success: function (data) {
+					__Modals.openModal();
+					$('.modal').fadeIn(200).append(data.html_content);
+				}
+			});	
 
-		$(document).on("click", ".yes-btn", function() {
-			window.location = back_to_levels;
-		});
+			$(document).on("click", ".yes-btn", function() {
+				window.location = back_to_levels;
+			});
 
-		$(document).on("click", ".no-btn", function() {
-			__Modals.modalShutdown();
-		});	
+			$(document).on("click", ".no-btn", function() {
+				__Modals.modalShutdown();
+			});	
+		}
 	});
 
 });
