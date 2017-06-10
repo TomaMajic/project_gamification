@@ -1,0 +1,51 @@
+<%if !@listing_achievements.blank?%>
+	<% completed = [] %>
+	<% @listing_achievements.each do |l_a| %>
+		<% user_ach = UserAchievement.where(:user_id => current_user.id, :achievement_id => l_a.id) %>
+			<% if !user_ach.blank? %>
+				<% completed << l_a.id %>
+			<% end %>
+	<% end %>
+<% end %>
+
+<table>	
+	<% if !(completed.blank?) %>
+		<% @listing_achievements.each do |a| %>
+			<% if completed.include? a.id %>
+				<tr>
+					<td class='ach-c'>
+						<%= a.name %>
+						<% if @yellow %>
+							<%= image_tag "achievement_img.png", class: "ach-completed" %>
+						<% end %>
+						<% if @blue %>
+							<%= image_tag "blue_trophy.png", class: "ach-completed" %>
+						<% end %>
+						<% if @red %>
+							<%= image_tag "red_trophy.png", class: "ach-completed" %>
+						<% end %>
+						<% if @green %>
+							<%= image_tag "green_trophy.png", class: "ach-completed" %>
+						<% end %>												
+					</td>
+				</tr>
+			<% else %>
+				<tr>	
+					<td class='ach-inc'>
+						<%= a.name %>
+						<%= image_tag "no_sign.png", class: "ach-incomplete" %>
+					</td>
+				</tr>
+			<% end %>
+		<% end %>
+	<% else %>
+		<% @listing_achievements.each do |a| %>
+			<tr>	
+				<td class='ach-inc'>
+					<%= a.name %>
+					<%= image_tag "no_sign.png", class: "ach-incomplete" %>
+				</td>
+			</tr>
+		<% end %>
+	<% end %>
+</table>

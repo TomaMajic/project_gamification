@@ -1,46 +1,34 @@
 <% @page_title = "Postignuća" %>
-<div class='achievements'>
-	<div class="ach-h">
+<div class="achievements">
+	<div class="title">
+		<%= image_tag "achievement_img.png", class: "trophy"  %>
 		Postignuća
+		<%= image_tag "achievement_img.png", class: "trophy"  %>
 	</div>
-	<table>
-		<%if !@user_achievements.blank?%>
-			<% completed = [] %>
-			<% @user_achievements.each do |u_a| %>
-				<% if u_a.user_id == current_user.id %>
-					<% completed << u_a.achievement_id %>
-				<% end %>
-			<% end %>
-		<% end %>	
 
-		<% if !(completed.blank?) %>
-			<% @achievements.each do |a| %>
-				<% if completed.include? a.id %>
-					<tr>
-						<td class='ach-c'>
-							<%= a.name %>
-							<%= image_tag "achievement_img.png", class: "ach-completed" %>
-						</td>
-					</tr>
-				<% else %>
-					<tr>	
-						<td class='ach-inc'>
-							<%= a.name %>
-							<%= image_tag "no_sign.png", class: "ach-incomplete" %>
-						</td>
-					</tr>
-				<% end %>
-			<% end %>
-		<% else %>
-			<% @achievements.each do |a| %>
-				<tr>	
-					<td class='ach-inc'>
-						<%= a.name %>
-						<%= image_tag "no_sign.png", class: "ach-incomplete" %>
-					</td>
-				</tr>
-			<% end %>
+	<div class="ach-cat">
+		<%= link_to("#", :class => "open-subach ", :data => {:id => "star-collection"} ) do %>
+			Skupljanje zvjezdica <%= image_tag "gold_star.png", class: "gold-star"  %>
 		<% end %>
-	</table>
+		<div id="star-collection"></div>
+	</div> 
+	<div class="ach-cat">
+		<%= link_to("#", :class => "open-subach ", :data => {:id => "cat-trav"} ) do %>
+			Uspjeh na kategorijama  <%= image_tag "complete.png", class: "complete"  %>
+		<% end %>
+		<div id="cat-trav"></div>
+	</div> 
+	<div class="ach-cat">
+		<%= link_to("#", :class => "open-subach ", :data => {:id => "quest"} ) do %>
+			Odgovori na pitanja  <%= image_tag "questions.png", class: "questions"  %>
+		<% end %>
+		<div id="quest"></div>
+	</div> 
+	<div class="ach-cat">
+		<%= link_to("#", :class => "open-subach ", :data => {:id => "misc"} ) do %>
+			Ostalo <%= image_tag "q_mark.png", class: "q-mark"  %>
+		<% end %>
+		<div id="misc"></div>
+	</div> 
 </div>
    

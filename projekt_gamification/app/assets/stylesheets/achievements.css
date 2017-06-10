@@ -2,10 +2,29 @@ table, th, td {
    width: 100%;
 }
 
+.achievements {
+	text-align: center;
+}
+
+.achievements {
+	font-size: 30px;
+	margin-bottom: 20px;
+	padding-top: 5px;
+}
+
+.open-subach {
+	color: #000;
+}
+
+.open-subach:hover {
+	color: #000;
+	color: #555;
+	text-decoration: none;
+}
 
 .ach-h {
 	text-align: center;
-	font-size: 25px;
+	font-size: 18px;
 	margin-bottom: 20px;
 	padding-bottom: 30px;
 	padding-top: 30px;
@@ -14,13 +33,17 @@ table, th, td {
 .ach-inc {
 	color: #bababa;
 	text-align: center;
-	font-size: 25px;
+	font-size: 18px;
 	display: inline-block;
 }
 
 .ach-c {
-	color: #0A5;
+	color: #7C2ED3;
 	text-align: center;
-	font-size: 25px;
+	font-size: 18px;
 	display: inline-block;
+}
+
+.ach-cat {
+	margin-bottom: 15px;
 }
