@@ -12,9 +12,12 @@ $(document).ready(function() {
 			type: 'get',
 			success: function (data) {
 				progress = data.progress;
-				console.log(progress);
+				children_count = data.children_count;
+
 				$(".p-bar > span").each(function() {
-					perc = (progress[i]/30)*100;
+					console.log(progress[i]);
+					console.log(children_count[i]);
+					perc = (progress[i]/(children_count[i]*30))*100;
 					console.log(perc);
 			  		$(this)
 			    	.data("origWidth", $(this).width())
@@ -48,7 +51,7 @@ $(document).ready(function() {
 					window.location = unlocked_concept;
 				}
 				else {
-					alert("You're not skilled enough for this category!");
+					alert("Niste još dovoljno vješti za ovu kategoriju!");
 				}
 			}
 		});

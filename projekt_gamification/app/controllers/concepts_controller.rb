@@ -21,7 +21,7 @@ class ConceptsController < ApplicationController
 
     if user_concept.blank? && params[:id].to_i != 7
       if !prev_user_concept.blank?
-        if prev_user_concept.progress < 25
+        if prev_user_concept.progress < 5
           unlocked = false
         end
       else
@@ -36,20 +36,26 @@ class ConceptsController < ApplicationController
 
   def check_progress
 
-    @concepts = Concept.where.not(:parent_id => nil)
-    puts @concepts
+    @concepts = Concept.where(:parent_id => nil)
     progress = []
+    children_count = []
 
     @concepts.each do |conc|
-      user_concept = UserConcept.find_by(:user_id => current_user.id, :concept_id => conc.id)
-      if !user_concept.blank?
-        progress << user_concept.progress
-      else 
-        progress << 0  
-      end  
+      children_progress = 0
+      children = Concept.where(:parent_id => conc.id).all
+
+      children.each do |child|
+        user_concept = UserConcept.find_by(:user_id => current_user.id, :concept_id => child.id)
+        if !user_concept.blank?
+          children_progress += user_concept.progress
+        end
+      end
+
+      children_count << children.count
+      progress << children_progress  
     end  
 
-    render :json => { :progress => progress }
+    render :json => { :progress => progress, :children_count => children_count }
   end  
 
   def get_subcategories

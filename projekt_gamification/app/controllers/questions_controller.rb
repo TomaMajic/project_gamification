@@ -38,7 +38,7 @@ class QuestionsController < ApplicationController
   	end
 
 
-    if (user_level.q1_status == true || user_level.q1_status == false) && (user_level.q2_status == true || user_level.q2_status == false) && (user_level.q3_status == true || user_level.q3_status == false) && (user_level.q4_status == true || user_level.q4_status == false)
+    if (!user_level.q1_status.blank?) && (!user_level.q2_status.blank?) && (!user_level.q3_status.blank?) && (!user_level.q4_status.blank?)
 
         if params[:q_num].to_i == 1
           replayed_level = UserLevel.create(:user_id => current_user.id, :level_id => level.id)
@@ -85,8 +85,6 @@ class QuestionsController < ApplicationController
               user_achievement = UserAchievement.create(:user_id => current_user.id, :achievement_id => 3)
             end
 
-            status = replayed_status
-
             user_achievement = UserAchievement.find_by(:user_id => current_user.id, :achievement_id => 2)
             if user_achievement.blank? && status == 4
               user_achievement = UserAchievement.create(:user_id => current_user.id, :achievement_id => 2)
@@ -95,8 +93,9 @@ class QuestionsController < ApplicationController
             end  
 
           end  
-          success = false
 
+          status = replayed_status
+          success = false
           replayed_level.destroy
         end                
     else
@@ -143,7 +142,6 @@ class QuestionsController < ApplicationController
     # Rendraj taj achievement i tamo ga spremaj u array, koji ces izlistat u modalu "Review" 
     @achievement = Achievement.find(user_achievement.achievement_id) if !user_achievement.blank?
     achievement_name = @achievement.name if !@achievement.blank?
-
 
   	render :json => { :correct => correct, :success => success, :status => status, :new_id => new_id, :achievement => achievement_name }
   end

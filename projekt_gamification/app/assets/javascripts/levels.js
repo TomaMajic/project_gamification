@@ -16,12 +16,7 @@ $(document).ready(function() {
 			success: function (data) {
 
 				if(data.playable) {
-					if(!data.completed) {
-						window.location = playable_level;
-					}
-					else {
-						alert("You have mastered this level!");					
-					}
+					window.location = playable_level;
 				}
 				else {
 					alert("This level still hasn't been unlocked!");
