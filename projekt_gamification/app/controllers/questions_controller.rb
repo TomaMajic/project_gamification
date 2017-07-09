@@ -38,7 +38,7 @@ class QuestionsController < ApplicationController
   	end
 
 
-    if (user_level.q1_status == true || user_level.q1_status == false) && (user_level.q2_status == true || user_level.q2_status == false) && (user_level.q3_status == true || user_level.q3_status == false) && (user_level.q4_status == true || user_level.q4_status == false)
+    if (!user_level.q1_status.blank?) && (!user_level.q2_status.blank?) && (!user_level.q3_status.blank?) && (!user_level.q4_status.blank?)
 
         if params[:q_num].to_i == 1
           replayed_level = UserLevel.create(:user_id => current_user.id, :level_id => level.id)
