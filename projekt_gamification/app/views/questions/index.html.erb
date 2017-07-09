@@ -1,7 +1,7 @@
 <%@page_title = "Razina " %>
 <%level = Level.find(params[:id])%>
 
-<div class="title">Level <%= level.level_no%></div>
+<div class="title">Razina <%= level.level_no%></div>
 <div class="question_boxes">
 	<% (1..4).each do |q_num| %>
 		<% class_name = "question_box" + q_num.to_s %>
@@ -24,9 +24,9 @@
 		<% if false %>
 			<% @questions = Question.where(:level_id => params[:id]) %>
 			<% @questions.each do |q| %>
-				<% UserQuestion.find_by(:question_id => q.id).destroy %>
-			<% end %>
-		<% end %>	
+				<%= UserQuestion.find_by(:question_id => q.id) %>
+			<% end %>	
+		<% end %>
 	<% end %>
 </div>
 <% if !@q.blank? %>

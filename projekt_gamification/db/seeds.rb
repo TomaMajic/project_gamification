@@ -19,11 +19,11 @@
  	Concept.create(name: name)
  end	
 
-Concept.create(name: "1.1Uvod u programiranje 1.dio", parent_id: 1)
-Concept.create(name: "1.2Uvod u programiranje 2.dio", parent_id: 1)
-Concept.create(name: "1.3Uvod u programiranje 3.dio", parent_id: 1)
-Concept.create(name: "2.1Uvod u programiranje 1.dio", parent_id: 2)
-Concept.create(name: "3.1Uvod u programiranje 1.dio", parent_id: 3)
+Concept.create(name: "1.1 Uvod u programiranje 1.dio", parent_id: 1)
+Concept.create(name: "1.2 Uvod u programiranje 2.dio", parent_id: 1)
+Concept.create(name: "1.3 Uvod u programiranje 3.dio", parent_id: 1)
+Concept.create(name: "2.1 Tipovi podataka 1.dio", parent_id: 2)
+Concept.create(name: "3.1 Kontrola toka 1.dio", parent_id: 3)
 
 
 Level.create(concept_id: 7, level_no: 1)
@@ -38,6 +38,14 @@ Level.create(concept_id: 7, level_no: 9)
 Level.create(concept_id: 7, level_no: 10)
 Level.create(concept_id: 8, level_no: 1)
 Level.create(concept_id: 8, level_no: 2)
+Level.create(concept_id: 8, level_no: 3)
+Level.create(concept_id: 8, level_no: 4)
+Level.create(concept_id: 8, level_no: 5)
+Level.create(concept_id: 8, level_no: 6)
+Level.create(concept_id: 8, level_no: 7)
+Level.create(concept_id: 8, level_no: 8)
+Level.create(concept_id: 8, level_no: 9)
+Level.create(concept_id: 8, level_no: 10)
 
 
 Question.create(level_id: 1, question_text: "Svaki C program mora sadržavati funkciju:")

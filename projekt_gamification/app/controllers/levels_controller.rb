@@ -41,7 +41,15 @@ class LevelsController < ApplicationController
     else
       playable = false   
     end    
-  		
+
+    if Question.get_new_unanswered_question(params[:id], current_user).blank?
+      questions = Question.where(:level_id => params[:id]) 
+
+      questions.each do |q| 
+        UserQuestion.find_by(:question_id => q.id).destroy 
+      end 
+    end
+
   	render :json => {:playable => playable, :already_played => already_played, :completed => completed}
 
   end	
