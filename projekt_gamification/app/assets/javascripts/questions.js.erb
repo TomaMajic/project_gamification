@@ -132,7 +132,8 @@ $(document).ready(function() {
 	});
 
 	$(document).on("click", ".give-up", function(e) {
-		if($('.score') == null) {
+
+		if(q_num < 4) {
 			event.preventDefault();
 			var back_to_levels = $(this).attr('href');
 
